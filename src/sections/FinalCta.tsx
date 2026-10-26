@@ -51,8 +51,8 @@ export function FinalCta() {
           </h2>
           <img
             className="final__bowl"
-            src="/media/bowls/curry-mix-1000.webp"
-            srcSet="/media/bowls/curry-mix-560.webp 560w, /media/bowls/curry-mix-1000.webp 987w"
+            src="media/bowls/curry-mix-1000.webp"
+            srcSet="media/bowls/curry-mix-560.webp 560w, media/bowls/curry-mix-1000.webp 987w"
             sizes="(min-width: 900px) 40vw, 86vw"
             width={987}
             height={767}

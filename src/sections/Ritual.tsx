@@ -97,7 +97,7 @@ export function Ritual() {
             <figure key={f.src} className={`ritual-card ${i % 2 ? 'is-low' : ''}`}>
               <div className="ritual-card__img">
                 <img
-                  src={`/media/ritual/${f.src}.webp`}
+                  src={`media/ritual/${f.src}.webp`}
                   width={760}
                   height={1561}
                   loading="lazy"

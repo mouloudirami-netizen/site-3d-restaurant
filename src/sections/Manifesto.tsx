@@ -76,8 +76,8 @@ export function Manifesto() {
         <figure className="manifesto__media">
           <div className="manifesto__frame" data-reveal="clip">
             <img
-              src="/media/photos/bols-alignes-1170.webp"
-              srcSet="/media/photos/bols-alignes-640.webp 640w, /media/photos/bols-alignes-1170.webp 1170w"
+              src="media/photos/bols-alignes-1170.webp"
+              srcSet="media/photos/bols-alignes-640.webp 640w, media/photos/bols-alignes-1170.webp 1170w"
               sizes="(min-width: 900px) 34vw, 90vw"
               width={1170}
               height={1542}

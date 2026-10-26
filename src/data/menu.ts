@@ -15,7 +15,7 @@ export type Bowl = {
   tagline: string
 }
 
-const img = (id: string) => `/media/bowls/${id}`
+const img = (id: string) => `media/bowls/${id}`
 
 export const BOWLS: Bowl[] = [
   {

@@ -90,8 +90,8 @@ export function Desserts() {
               <motion.img
                 key={current.id}
                 className="desserts__jar"
-                src={`/media/desserts/${current.id}-720.webp`}
-                srcSet={`/media/desserts/${current.id}-400.webp 400w, /media/desserts/${current.id}-720.webp 720w`}
+                src={`media/desserts/${current.id}-720.webp`}
+                srcSet={`media/desserts/${current.id}-400.webp 400w, media/desserts/${current.id}-720.webp 720w`}
                 sizes="(min-width: 900px) 30vw, 62vw"
                 alt={`${rangeInfo.label} ${current.name}${current.sub ? ' ' + current.sub : ''}, pot Thaisty Sweety`}
                 custom={dir}

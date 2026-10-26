@@ -43,8 +43,8 @@ export function Identity() {
             <figure key={s.id} className={`identity__shot ${s.cls}`}>
               <div className="identity__frame" data-reveal="clip">
                 <img
-                  src={`/media/photos/${s.id}-1170.webp`}
-                  srcSet={`/media/photos/${s.id}-640.webp 640w, /media/photos/${s.id}-1170.webp 1170w`}
+                  src={`media/photos/${s.id}-1170.webp`}
+                  srcSet={`media/photos/${s.id}-640.webp 640w, media/photos/${s.id}-1170.webp 1170w`}
                   sizes="(min-width: 900px) 33vw, 92vw"
                   width={s.w}
                   height={s.h}

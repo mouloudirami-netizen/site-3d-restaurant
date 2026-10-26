@@ -81,7 +81,7 @@ export function Anatomy() {
           fallback={
             <img
               className="anatomy__fallback"
-              src="/media/photos/eclate-1170.webp"
+              src="media/photos/eclate-1170.webp"
               width={1170}
               height={1552}
               loading="lazy"

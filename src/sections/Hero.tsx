@@ -93,10 +93,10 @@ export function Hero() {
       <div className="hero__bowl-wrap">
         <div className="hero__shadow" aria-hidden="true" />
         <picture>
-          <source media="(max-width: 640px)" srcSet="/media/bowls/spicy-560.webp" />
+          <source media="(max-width: 640px)" srcSet="media/bowls/spicy-560.webp" />
           <img
             className="hero__bowl"
-            src="/media/bowls/spicy-1000.webp"
+            src="media/bowls/spicy-1000.webp"
             width={987}
             height={763}
             alt="Bol Crousty Spicy : poulet crousty, sauce blanche et sauce piquante dans le pot noir Thaisty Crousty"

@@ -60,8 +60,8 @@ export function Crunch() {
             <div className="crunch__frame" data-reveal="clip">
               <img
                 data-parallax={p.speed}
-                src={`/media/photos/${p.id}-1170.webp`}
-                srcSet={`/media/photos/${p.id}-640.webp 640w, /media/photos/${p.id}-1170.webp 1170w`}
+                src={`media/photos/${p.id}-1170.webp`}
+                srcSet={`media/photos/${p.id}-640.webp 640w, media/photos/${p.id}-1170.webp 1170w`}
                 sizes="(min-width: 900px) 30vw, 80vw"
                 width={1170}
                 height={1540}
