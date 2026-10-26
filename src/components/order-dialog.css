@@ -1,0 +1,163 @@
+.order-dialog {
+  width: min(640px, calc(100vw - 24px));
+  max-height: min(860px, calc(100dvh - 24px));
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cream);
+  overflow: visible;
+}
+
+.order-dialog::backdrop {
+  background: rgba(4, 3, 2, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.order-dialog__panel {
+  position: relative;
+  max-height: min(860px, calc(100dvh - 24px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: clamp(22px, 4vw, 40px);
+  border-radius: 28px;
+  background:
+    radial-gradient(120% 70% at 100% 0%, rgba(242, 154, 31, 0.16), transparent 60%),
+    var(--charcoal);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 40px 120px rgba(0, 0, 0, 0.6);
+}
+
+.order-dialog__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.order-dialog__title {
+  margin-top: 12px;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+}
+
+.order-dialog__accent {
+  color: var(--orange);
+}
+
+.order-dialog__close {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: background 0.3s;
+}
+
+.order-dialog__close svg {
+  width: 20px;
+}
+
+.order-dialog__close:hover {
+  background: var(--charcoal-3);
+}
+
+.order-dialog__intro {
+  margin: 14px 0 22px;
+  color: var(--cream-dim);
+  font-size: 0.95rem;
+  max-width: 44ch;
+}
+
+.order-dialog__list {
+  display: grid;
+  gap: 8px;
+}
+
+.order-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'name phone'
+    'status phone';
+  align-items: center;
+  gap: 2px 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--charcoal-2);
+  transition:
+    background 0.3s,
+    transform 0.3s var(--ease-out);
+}
+
+.order-row:hover {
+  background: var(--charcoal-3);
+  transform: translateX(4px);
+}
+
+.order-row__name {
+  grid-area: name;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-poster);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+
+.order-row__flame {
+  width: 13px;
+  height: 16px;
+}
+
+.order-row__status {
+  grid-area: status;
+  padding-left: 23px;
+  font-size: 0.78rem;
+  color: var(--cream-dim);
+}
+
+.order-row__status.is-open {
+  color: #8fdc6a;
+}
+
+.order-row__phone {
+  grid-area: phone;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--red);
+  font-weight: 700;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.order-row__phone svg {
+  width: 16px;
+}
+
+@media (max-width: 480px) {
+  .order-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'name'
+      'status'
+      'phone';
+    gap: 6px;
+  }
+
+  .order-row__phone {
+    justify-content: center;
+    margin-top: 6px;
+  }
+}
+
+html.is-locked {
+  overflow: hidden;
+}
