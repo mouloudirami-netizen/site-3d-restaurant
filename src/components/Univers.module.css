@@ -1,0 +1,153 @@
+.univers {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+/* Pétales derrière le contenu, estompés là où se trouve le texte */
+.petals {
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
+}
+
+@media (min-width: 64rem) {
+  .petals {
+    -webkit-mask-image: linear-gradient(to right, transparent 35%, black 60%);
+    mask-image: linear-gradient(to right, transparent 35%, black 60%);
+  }
+}
+
+/* Grand mot HELENA en filigrane, motif éditorial récurrent */
+.watermark {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  z-index: -1;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 26vw, 26rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(110 31 51 / 0.1);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.intro {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.text :global(.lead) {
+  margin-bottom: var(--space-m);
+}
+
+.body {
+  max-width: var(--text-max);
+  color: var(--text-muted);
+}
+
+.collage {
+  position: relative;
+  padding-bottom: 18%;
+}
+
+.main {
+  margin: 0;
+  width: 78%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 200px 200px var(--radius-m) var(--radius-m); /* arche, rappel des voûtes */
+  box-shadow: var(--shadow-soft);
+}
+
+.secondary {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  width: 44%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 6px solid var(--cream);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-lift);
+}
+
+.main img,
+.secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Moments ---------- */
+.moments {
+  display: grid;
+  gap: var(--space-l);
+  margin-top: var(--space-2xl);
+}
+
+.moment {
+  display: block;
+  text-decoration: none;
+}
+
+.momentImage {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  margin-bottom: var(--space-s);
+}
+
+.momentImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.moment:hover .momentImage img,
+.moment:focus-visible .momentImage img {
+  transform: scale(1.06);
+}
+
+.momentIndex {
+  font-size: var(--step--1);
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.momentTitle {
+  margin: var(--space-3xs) 0 var(--space-2xs);
+  font-size: var(--step-2);
+  font-style: italic;
+}
+
+.momentText {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  max-width: 22rem;
+}
+
+@media (min-width: 48rem) {
+  .moments {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* décalage éditorial de la carte centrale */
+  .moment:nth-child(2) {
+    margin-top: var(--space-xl);
+  }
+}
+
+@media (min-width: 64rem) {
+  .intro {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+}

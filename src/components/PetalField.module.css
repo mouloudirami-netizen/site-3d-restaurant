@@ -1,0 +1,9 @@
+.field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.field canvas {
+  display: block;
+}

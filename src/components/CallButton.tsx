@@ -13,6 +13,7 @@ export function CallButton() {
       <a
         href={restaurant.phone.href}
         className={styles.floating}
+        data-magnetic
         aria-label={`Nous appeler au ${restaurant.phone.display}`}
       >
         <span className={styles.pulse} aria-hidden="true" />

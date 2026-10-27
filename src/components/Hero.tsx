@@ -3,6 +3,7 @@ import { restaurant } from '../data/restaurant';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { gsap, prefersLightMedia, prefersReducedMotion } from '../lib/motion';
 import { Button } from './Button';
+import { PetalField } from './PetalField';
 import { Picture } from './Picture';
 import styles from './Hero.module.css';
 
@@ -115,6 +116,8 @@ export function Hero() {
         <div className={styles.veil} />
       </div>
 
+      <PetalField density={0.8} />
+
       <div ref={contentRef} className={styles.content}>
         <p className={styles.eyebrow} data-reveal="eyebrow">
           {restaurant.tagline}
@@ -137,12 +140,12 @@ export function Hero() {
         </p>
         <div className={styles.actions}>
           <span data-reveal="cta">
-            <Button href="#carte" icon="arrow" iconPosition="end">
+            <Button href="#carte" icon="arrow" iconPosition="end" data-magnetic>
               Découvrir la carte
             </Button>
           </span>
           <span data-reveal="cta">
-            <Button href="#infos" variant="light" icon="map">
+            <Button href="#infos" variant="light" icon="map" data-magnetic>
               Nous trouver
             </Button>
           </span>

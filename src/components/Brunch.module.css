@@ -1,0 +1,203 @@
+.brunch {
+  background: var(--rose-200);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.script {
+  font-size: var(--step-5);
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.title {
+  font-size: var(--step-3);
+  max-width: 26rem;
+}
+
+.title em {
+  color: var(--accent);
+}
+
+.hours {
+  display: inline-block;
+  margin-top: var(--space-m);
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.photo {
+  margin: var(--space-l) 0 0;
+  aspect-ratio: 4 / 5;
+  max-height: 60vh;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-soft);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Formules ---------- */
+.formulas {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.card {
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border-radius: var(--radius-m);
+  background: rgb(251 246 241 / 0.75);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.8) inset, var(--shadow-soft);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.8) inset, var(--shadow-lift);
+}
+
+.cardHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: var(--space-s);
+}
+
+.index {
+  font-size: var(--step--1);
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.name {
+  font-size: var(--step-2);
+  font-style: italic;
+}
+
+.price {
+  font-size: var(--step-1);
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ornament {
+  width: 100%;
+  margin: var(--space-s) 0;
+  opacity: 0.7;
+}
+
+.includes {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includes li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: var(--step--1);
+  line-height: 1.55;
+}
+
+.includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- Suppléments ---------- */
+.supplements {
+  display: grid;
+  gap: var(--space-m);
+  margin-top: var(--space-s);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: 1px dashed rgb(110 31 51 / 0.35);
+  border-radius: var(--radius-m);
+}
+
+.groupTitle {
+  margin-bottom: var(--space-2xs);
+  font-family: var(--font-script);
+  font-size: var(--step-2);
+  color: var(--accent);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgb(251 246 241 / 0.7);
+  font-size: var(--step--1);
+}
+
+.note {
+  font-size: var(--step--1);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (min-width: 48rem) {
+  .supplements {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .note {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .layout {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* colonne gauche fixe pendant que les formules défilent */
+  .aside {
+    align-self: stretch;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .photo {
+    max-height: 52vh;
+    aspect-ratio: 5 / 4;
+  }
+}
