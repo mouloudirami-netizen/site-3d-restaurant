@@ -1,0 +1,147 @@
+.infos {
+  background: var(--cream);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.address strong {
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  margin-top: auto;
+}
+
+.copy {
+  min-height: 2.75rem;
+  padding: 0 0.25rem;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.placeholder {
+  width: 100%;
+  padding: var(--space-xs);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-s);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* ---------- Horaires ---------- */
+.hours {
+  display: grid;
+  gap: var(--space-xs);
+  margin: 0;
+}
+
+.hours > div {
+  padding: var(--space-xs) var(--space-s);
+  margin-inline: calc(var(--space-s) * -1);
+  border-radius: var(--radius-s);
+}
+
+.hours dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+}
+
+.hours dd {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.hours small {
+  font-size: var(--step--1);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.today {
+  background: var(--rose-100);
+}
+
+.badge {
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  background: var(--rose-200);
+  border-color: transparent;
+}
+
+.phone {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contact > :global(a:last-child) {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (min-width: 64rem) {
+  .grid {
+    grid-template-columns: 1.1fr 1.1fr 1fr;
+  }
+}

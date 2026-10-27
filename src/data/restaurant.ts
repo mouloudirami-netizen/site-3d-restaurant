@@ -8,7 +8,10 @@ export interface OpeningSlot {
 
 export interface OpeningDay {
   label: string;
+  /** Jours concernés (0 = dimanche … 6 = samedi). */
+  days: number[];
   slots: OpeningSlot[];
+  note?: string;
 }
 
 export const restaurant = {
@@ -26,23 +29,23 @@ export const restaurant = {
     href: 'tel:+213554062254',
   },
   social: {
-    instagram: 'https://www.instagram.com/helena_restaurant_cafe/',
-    tiktok: 'https://www.tiktok.com/@helena_restaurant?_r=1&_t=ZS-9AuYy0ihEMX',
+    instagram: { url: 'https://www.instagram.com/helena_restaurant_cafe/', handle: '@helena_restaurant_cafe' },
+    tiktok: { url: 'https://www.tiktok.com/@helena_restaurant?_r=1&_t=ZS-9AuYy0ihEMX', handle: '@helena_restaurant' },
   },
   // À renseigner uniquement avec un lien vérifié (voir CONTENT_CHECKLIST.md).
   mapsUrl: null as string | null,
   hours: [
-    { label: 'Samedi – Jeudi', slots: [{ open: '08:00', close: '23:30' }] },
+    { label: 'Samedi – Jeudi', days: [6, 0, 1, 2, 3, 4], slots: [{ open: '08:00', close: '23:30' }] },
     {
       label: 'Vendredi',
+      days: [5],
       slots: [
         { open: '08:00', close: '12:00' },
         { open: '14:00', close: '23:30' },
       ],
+      note: 'Fermé de 12 h à 14 h',
     },
   ] satisfies OpeningDay[],
-  // Information issue du menu, à confirmer (notamment le vendredi).
-  brunchHours: { open: '10:00', close: '16:00' },
 } as const;
 
 export const formatAddress = () => {
@@ -50,4 +53,14 @@ export const formatAddress = () => {
   return `${street}, ${city} ${postalCode}, ${country}`;
 };
 
-export const formatTime = (time: string) => time.replace(':', ' h ');
+// Espaces insécables (+ gluon U+2060 après le tiret) : une plage horaire ne se coupe jamais.
+export const formatTime = (time: string) => time.replace(':', '\u00a0h\u00a0');
+
+export const formatSlots = (slots: readonly OpeningSlot[]) =>
+  slots.map((slot) => `${formatTime(slot.open)}\u00a0–\u2060\u00a0${formatTime(slot.close)}`).join(' · ');
+
+/** Jour de la semaine actuel à Alger (0 = dimanche). */
+export const todayInAlgiers = () => {
+  const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'Africa/Algiers' }).format(new Date());
+  return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(weekday);
+};

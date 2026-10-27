@@ -2,9 +2,12 @@ import { Brunch } from './components/Brunch';
 import { CallButton } from './components/CallButton';
 import { Carte } from './components/Carte';
 import { Cursor } from './components/Cursor';
+import { Footer } from './components/Footer';
 import { Gallery } from './components/Gallery';
 import { Hero } from './components/Hero';
+import { Infos } from './components/Infos';
 import { Nav } from './components/Nav';
+import { Social } from './components/Social';
 import { Univers } from './components/Univers';
 import { useReducedMotion } from './hooks/useReducedMotion';
 import { useScrollReveals } from './hooks/useScrollReveals';
@@ -27,7 +30,10 @@ export function App() {
         <Brunch />
         <Carte />
         <Gallery />
+        <Infos />
+        <Social />
       </main>
+      <Footer />
       <CallButton />
       <Cursor />
     </>

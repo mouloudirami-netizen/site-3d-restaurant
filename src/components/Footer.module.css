@@ -1,0 +1,143 @@
+.footer {
+  padding-top: var(--space-2xl);
+  background: #241618;
+  color: rgb(255 255 255 / 0.85);
+  font-size: var(--step--1);
+}
+
+.top {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+}
+
+.script {
+  margin-top: var(--space-2xs);
+  font-size: var(--step-3);
+  color: var(--rose-200);
+}
+
+.tagline {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin-bottom: var(--space-s);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-300);
+}
+
+.col ul {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.col a {
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+
+.col a:hover {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.col address {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.col li {
+  display: flex;
+  flex-direction: column;
+}
+
+.day {
+  color: var(--white);
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  margin-top: var(--space-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.social {
+  display: flex;
+  gap: var(--space-2xs);
+  margin-top: var(--space-s);
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 50%;
+  transition:
+    background-color var(--dur-fast),
+    color var(--dur-fast);
+}
+
+.social a:hover {
+  background: var(--rose-200);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-top: var(--space-xl);
+  padding-block: var(--space-l);
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.ornament {
+  margin-bottom: var(--space-s);
+  opacity: 0.6;
+}
+
+@media (min-width: 48rem) {
+  .top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .top {
+    grid-template-columns: 1.3fr 1fr 1.2fr 1.2fr;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+}

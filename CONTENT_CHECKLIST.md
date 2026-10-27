@@ -40,3 +40,12 @@ Voir `MENU_VERIFICATION.md` : prix manquants, ambiguïtés de transcription et c
 |---|---|---|
 | 🟠 | Photo de fin du hero | « salle-roses » (1170 px de large) est légèrement agrandie sur grand écran et laisse voir l'écran TV en bas. Une photo HD du plafond fleuri, en format paysage, améliorerait nettement le rendu. |
 | 🟢 | Accroche | « Sous une voûte de fleurs, chaque instant se savoure. » — texte original, sans promesse factuelle. |
+
+## Contact & pied de page (étape 7)
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🔴 | Bouton « Itinéraire » | Masqué tant que `restaurant.mapsUrl` est vide. En mode développement, un emplacement en pointillés le signale ; il n'apparaît jamais dans la version de production. |
+| 🟢 | « Copier l'adresse » | Disponible en attendant le lien Google Maps. |
+| 🟠 | Mentions ajoutées | Pied de page : « Prix en dinars algériens (DA), à titre indicatif. » et « El Biar, Alger ». À valider par le restaurant. |
+| 🟢 | Réservations | Aucune mention de réservation (service non confirmé) : le bloc s'intitule simplement « Téléphone ». |
