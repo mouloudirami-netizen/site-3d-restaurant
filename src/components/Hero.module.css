@@ -14,6 +14,8 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Première image du film en fond : rien de noir pendant les chargements (même image que l'écran d'attente) */
+  background: var(--ink) url('/media/hero-poster-desktop.webp') center / cover no-repeat;
   transform-origin: 50% 30%;
   will-change: transform;
 }
@@ -35,6 +37,21 @@
 .videoHidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.photo {
+  opacity: 0;
+  transition: opacity 1.8s var(--ease-in-out);
+}
+
+.photoActive {
+  opacity: 1;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .media {
+    background-image: url('/media/hero-poster-mobile.webp');
+  }
 }
 
 /* Cadrage sur le plafond de roses et le lustre, pas sur l'écran TV */
@@ -59,8 +76,10 @@
 .veil {
   position: absolute;
   inset: 0;
+  /* Voile plus dense au centre, derrière le texte (contraste WCAG mesuré sur les images les plus claires) */
   background:
-    radial-gradient(ellipse 80% 70% at 50% 50%, rgb(42 26 28 / 0.15), rgb(42 26 28 / 0.55)),
+    radial-gradient(ellipse 60% 50% at 50% 52%, rgb(42 26 28 / 0.42), rgb(42 26 28 / 0) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgb(42 26 28 / 0.3), rgb(42 26 28 / 0.55)),
     linear-gradient(rgb(42 26 28 / 0.35), transparent 30%, transparent 60%, rgb(42 26 28 / 0.65));
 }
 

@@ -41,10 +41,16 @@
 
 .col ul {
   display: grid;
-  gap: var(--space-2xs);
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.col ul a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem; /* zone tactile confortable */
 }
 
 .col a {
@@ -66,6 +72,10 @@
 .col li {
   display: flex;
   flex-direction: column;
+}
+
+.col li + li:has(.day) {
+  margin-top: var(--space-2xs);
 }
 
 .day {

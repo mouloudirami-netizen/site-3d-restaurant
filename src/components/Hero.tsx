@@ -28,21 +28,41 @@ export function Hero() {
   const [video] = useState(pickVideo);
   const [phase, setPhase] = useState<Phase>(useFilm ? 'film' : 'photo');
   const [paused, setPaused] = useState(false);
+  const [photoReady, setPhotoReady] = useState(false);
+  // La vraie photo ne remplace le film qu'une fois réellement affichable.
+  const showPhoto = phase === 'photo' && photoReady;
 
   const rootRef = useRef<HTMLElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Repli automatique si la vidéo ne démarre pas.
+  /** Repli sur la photo ; en cas d'échec du film, on coupe son téléchargement pour libérer le réseau. */
+  const fallbackToPhoto = () => {
+    const el = videoRef.current;
+    if (el) {
+      el.pause();
+      el.removeAttribute('src');
+      el.load();
+    }
+    setPhase('photo');
+  };
+
+  // Repli automatique si la vidéo ne démarre pas (autoplay bloqué, réseau lent).
   useEffect(() => {
     if (phase !== 'film') return;
     const el = videoRef.current;
     if (!el) return;
     const timer = window.setTimeout(() => {
-      if (el.paused && el.currentTime === 0) setPhase('photo');
+      if (el.paused && el.currentTime === 0) fallbackToPhoto();
     }, START_TIMEOUT_MS);
     return () => window.clearTimeout(timer);
+  }, [phase]);
+
+  // Photo déjà en cache : l'événement load a pu précéder l'abonnement.
+  useEffect(() => {
+    const img = mediaRef.current?.querySelector<HTMLImageElement>('[data-hero-photo] img');
+    if (img?.complete && img.naturalWidth > 0) setPhotoReady(true);
   }, [phase]);
 
   // Animations d'entrée et de défilement.
@@ -81,6 +101,7 @@ export function Hero() {
     setPhase('film');
     const el = videoRef.current;
     if (el) {
+      if (!el.getAttribute('src')) el.src = video.src;
       el.currentTime = 0;
       void el.play();
     }
@@ -89,19 +110,23 @@ export function Hero() {
   return (
     <section id="accueil" ref={rootRef} className={styles.hero} aria-labelledby="hero-title">
       <div ref={mediaRef} className={styles.media}>
-        <div className={[styles.photo, phase === 'photo' && styles.photoActive].filter(Boolean).join(' ')}>
+        <div
+          className={[styles.photo, showPhoto && styles.photoActive].filter(Boolean).join(' ')}
+          data-hero-photo
+        >
           <Picture
             name="salle-roses"
             alt="La salle de Helena, son plafond de roses et ses lustres"
             sizes="100vw"
             priority={!useFilm}
+            onLoad={() => setPhotoReady(true)}
           />
         </div>
 
         {useFilm && (
           <video
             ref={videoRef}
-            className={[styles.video, phase === 'photo' && styles.videoHidden].filter(Boolean).join(' ')}
+            className={[styles.video, showPhoto && styles.videoHidden].filter(Boolean).join(' ')}
             src={video.src}
             poster={video.poster}
             autoPlay
@@ -110,7 +135,7 @@ export function Hero() {
             preload="auto"
             aria-hidden="true"
             onEnded={() => setPhase('photo')}
-            onError={() => setPhase('photo')}
+            onError={fallbackToPhoto}
           />
         )}
         <div className={styles.veil} />
@@ -155,7 +180,7 @@ export function Hero() {
       <div className={styles.foot} data-reveal="foot">
         <div className={styles.status}>
           <p className={styles.caption} aria-live="polite">
-            {phase === 'film' ? 'Film d’ambiance' : `La salle · ${restaurant.address.city}`}
+            {showPhoto ? `La salle · ${restaurant.address.city}` : useFilm ? 'Film d’ambiance' : ''}
           </p>
           {useFilm &&
             (phase === 'film' ? (

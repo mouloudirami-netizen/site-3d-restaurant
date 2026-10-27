@@ -49,3 +49,13 @@ Voir `MENU_VERIFICATION.md` : prix manquants, ambiguïtés de transcription et c
 | 🟢 | « Copier l'adresse » | Disponible à côté du bouton « Itinéraire ». |
 | 🟠 | Mentions ajoutées | Pied de page : « Prix en dinars algériens (DA), à titre indicatif. » et « El Biar, Alger ». À valider par le restaurant. |
 | 🟢 | Réservations | Aucune mention de réservation (service non confirmé) : le bloc s'intitule simplement « Téléphone ». |
+
+## Référencement et mise en ligne (étape 8)
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🟠 | Nom de domaine | Inconnu. À la mise en ligne : passer `og:image` en URL absolue, ajouter `<link rel="canonical">`, `url` et `image` dans les données structurées, et un `sitemap.xml`. |
+| 🟢 | Données structurées | Restaurant : adresse, téléphone, horaires, réseaux, lien Maps. Aucune note, aucun avis, aucune coordonnée GPS, aucune gamme de prix inventés. |
+| 🟠 | Icônes du site | `favicon-temp*.png` et `apple-touch-icon-temp.png` générés depuis le logo basse définition : à refaire depuis le logo original. |
+| 🟢 | Image de partage | `public/og-image.jpg` (1200×630) : vraie photo de la salle (recadrée, sans client visible) + nom. |
+| 🟠 | Indexation | Le site n'est pas en ligne : aucune indexation ni positionnement Google à ce stade. |

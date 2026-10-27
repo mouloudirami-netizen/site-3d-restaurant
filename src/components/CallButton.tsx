@@ -9,7 +9,7 @@ import styles from './CallButton.module.css';
  */
 export function CallButton() {
   return (
-    <>
+    <aside aria-label="Actions rapides">
       <a
         href={restaurant.phone.href}
         className={styles.floating}
@@ -21,7 +21,7 @@ export function CallButton() {
         <span>Nous appeler</span>
       </a>
 
-      <div className={styles.bar} role="region" aria-label="Actions rapides">
+      <div className={styles.bar}>
         <a href={restaurant.phone.href} className={styles.call}>
           <Icon name="phone" size={18} />
           <span>Appeler</span>
@@ -31,6 +31,6 @@ export function CallButton() {
           <span>La carte</span>
         </a>
       </div>
-    </>
+    </aside>
   );
 }

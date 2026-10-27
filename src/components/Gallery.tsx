@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { moodImages, realPhotos } from '../data/gallery';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import { gsap } from '../lib/motion';
 import { Picture } from './Picture';
 import { SectionHeading } from './SectionHeading';
@@ -12,6 +13,7 @@ import styles from './Gallery.module.css';
 export function Gallery() {
   const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const mm = gsap.matchMedia();
@@ -54,7 +56,14 @@ export function Gallery() {
           <p className={styles.legend}>Photographies prises chez Helena.</p>
         </div>
 
-        <div ref={trackRef} className={styles.track}>
+        {/* Sans animation, la piste défile au clavier (flèches) sur grand écran. */}
+        <div
+          ref={trackRef}
+          className={styles.track}
+          tabIndex={reducedMotion ? 0 : undefined}
+          role={reducedMotion ? 'region' : undefined}
+          aria-label={reducedMotion ? 'Photographies de Helena' : undefined}
+        >
           {realPhotos.map((photo, index) => (
             <figure key={photo.name} className={styles.item} data-shape={index % 3}>
               <div className={styles.frame}>

@@ -7,12 +7,89 @@
     <title>Helena Restaurant &amp; Café — Restaurant, café et brunch à El Biar, Alger</title>
     <meta
       name="description"
-      content="Helena Restaurant & Café à El Biar, Alger : brunchs, cafés de spécialité, plats, desserts et boissons dans un décor floral. Consultez la carte et appelez-nous."
+      content="Helena Restaurant & Café à El Biar, Alger : brunchs, cafés, plats, desserts et boissons dans un décor floral. Consultez la carte, nos horaires et appelez-nous."
     />
-    <link rel="icon" type="image/png" href="/favicon-temp.png" />
+
+    <!-- Partage (Open Graph). À la mise en ligne : remplacer les chemins relatifs par l'URL absolue du domaine. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Helena Restaurant &amp; Café" />
+    <meta property="og:title" content="Helena Restaurant &amp; Café — El Biar, Alger" />
+    <meta
+      property="og:description"
+      content="Restaurant, café et brunch sous une voûte de fleurs. Carte complète, horaires et contact."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="La salle de Helena et son plafond de roses" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icônes TEMPORAIRES (logo basse définition) — à régénérer depuis le logo original. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-temp-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-temp.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-temp.png" />
+
+    <!-- Données structurées : uniquement des informations fournies et confirmées. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Helena Restaurant & Café",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "43 Bd du 11 Décembre 1960",
+          "addressLocality": "El Biar",
+          "addressRegion": "Alger",
+          "postalCode": "16100",
+          "addressCountry": "DZ"
+        },
+        "telephone": "+213554062254",
+        "hasMap": "https://maps.app.goo.gl/jvGTbnBpugh7GLYT6?g_st=iw",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+            "opens": "08:00",
+            "closes": "23:30"
+          },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "12:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "14:00", "closes": "23:30" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/helena_restaurant_cafe/",
+          "https://www.tiktok.com/@helena_restaurant"
+        ]
+      }
+    </script>
+    <!-- Image d'attente affichée avant le chargement du JavaScript (même image que le début du film). -->
+    <style>
+      #root:has(> .boot) { min-height: 100svh; }
+      .boot { position: fixed; inset: 0; background: #2a1a1c; }
+      .boot img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); }
+      .boot a {
+        position: absolute; left: 50%; bottom: max(1.5rem, env(safe-area-inset-bottom)); transform: translateX(-50%);
+        padding: 0.9rem 1.8rem; border-radius: 999px; background: #6e1f33; color: #fff;
+        font: 500 1rem/1 system-ui, sans-serif; letter-spacing: 0.04em; text-decoration: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="boot">
+        <picture>
+          <source media="(max-aspect-ratio: 1/1)" srcset="/media/hero-poster-mobile.webp" />
+          <img src="/media/hero-poster-desktop.webp" alt="" fetchpriority="high" />
+        </picture>
+        <a href="tel:+213554062254">Appeler Helena</a>
+      </div>
+    </div>
+    <noscript>
+      <h1>Helena Restaurant &amp; Café</h1>
+      <p>Restaurant · Café · Brunch — 43 Bd du 11 Décembre 1960, El Biar 16100, Algérie.</p>
+      <p>Samedi – jeudi : 08 h 00 – 23 h 30. Vendredi : 08 h 00 – 12 h 00 et 14 h 00 – 23 h 30.</p>
+      <p>Téléphone : <a href="tel:+213554062254">+213 5 54 06 22 54</a></p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

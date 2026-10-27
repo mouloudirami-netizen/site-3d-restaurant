@@ -104,7 +104,6 @@ export function Carte() {
                   type="button"
                   className={styles.family}
                   onClick={() => selectGroup(family.id, { scroll: true })}
-                  aria-label={`${group.label} : ${group.intro} Voir la sélection`}
                 >
                   <span className={styles.familyImage}>
                     <Picture name={family.image} alt="" sizes="(min-width: 64rem) 22vw, 45vw" />

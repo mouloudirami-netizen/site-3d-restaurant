@@ -18,6 +18,23 @@ function petalBudget(density: number) {
 }
 
 /**
+ * Rendu WebGL logiciel (sans carte graphique) : chaque image serait calculée
+ * par le processeur et bloquerait la page. On s'abstient dans ce cas.
+ */
+function hasHardwareWebGL() {
+  try {
+    const gl = document.createElement('canvas').getContext('webgl');
+    if (!gl) return false;
+    const info = gl.getExtension('WEBGL_debug_renderer_info');
+    const renderer = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '';
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return !/swiftshader|llvmpipe|softpipe|software/i.test(renderer);
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Calque de pétales 3D. Three.js est chargé à la demande, après l'affichage
  * de la page ; rien n'est chargé si l'utilisateur préfère réduire les animations.
  */
@@ -27,7 +44,7 @@ export function PetalField({ density = 1, opacity = 0.92, className }: PetalFiel
 
   useEffect(() => {
     const container = ref.current;
-    if (reducedMotion || !container) return;
+    if (reducedMotion || !container || !hasHardwareWebGL()) return;
 
     let disposed = false;
     let handle: { dispose: () => void } | null = null;
