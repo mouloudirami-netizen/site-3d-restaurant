@@ -1,0 +1,16 @@
+.ornament {
+  width: min(15rem, 70%);
+  height: auto;
+  color: var(--gold);
+  stroke: currentColor;
+  stroke-width: 1;
+  fill: currentColor;
+}
+
+.ornament path:first-child {
+  fill: none;
+}
+
+.diamond {
+  fill: none;
+}

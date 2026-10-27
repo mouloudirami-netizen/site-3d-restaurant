@@ -1,0 +1,35 @@
+# Helena — Éléments à confirmer avant publication
+
+Légende : 🔴 bloquant pour la publication · 🟠 important · 🟢 confirmé
+
+## Informations pratiques
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🟢 | Adresse | 43 Bd du 11 Décembre 1960, El Biar 16100, Algérie — confirmée par le commanditaire. |
+| 🟠 | Mention « Val d'Hydra » / « HYDRA » | Présente sur le logo et une story Instagram. L'adresse retenue est El Biar ; le site n'affiche pas « Val d'Hydra ». À clarifier avec le restaurant (ancien site ? deuxième établissement ?). |
+| 🔴 | Lien Google Maps | Non fourni. `restaurant.mapsUrl` vaut `null` dans `src/data/restaurant.ts` ; le bouton itinéraire reste masqué tant qu'il n'est pas renseigné. |
+| 🟢 | Téléphone | +213 5 54 06 22 54 (`tel:+213554062254`). |
+| 🟢 | Horaires | Sam.–jeu. 08 h–23 h 30 ; vendredi 08 h–12 h et 14 h–23 h 30. |
+| 🟠 | Brunch le vendredi | Le menu indique un brunch de 10 h à 16 h, mais le restaurant ferme de 12 h à 14 h le vendredi. Créneau du vendredi à confirmer. |
+| 🟢 | Instagram / TikTok | Liens officiels fournis. |
+
+## Identité
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🔴 | Logo original | Seul un JPG 554×554 est disponible (`media-source/logo-helna-couronne-temp.jpg`). Fichier SVG ou PNG HD transparent requis. Utilisé temporairement : `public/media/logo-temp.webp`, `public/favicon-temp.png`. |
+| 🟠 | Version officielle du logo | « HEL&NA » (couronne, sur place) vs « ꞒLENA » (menu). Le site utilise HEL&NA comme logo et « Helena » dans les textes. |
+
+## Médias
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🟠 | Vidéo d'accueil | Rendu stylisé (non filmé dans le restaurant). Utilisée comme ouverture d'ambiance, suivie d'un fondu vers une vraie photo (option C validée). Le restaurant doit valider cet usage. |
+| 🟠 | Visuels d'ambiance | `ambiance-salle`, `ambiance-latte`, `ambiance-cocktails` sont générés : ils ne sont jamais présentés comme de vraies photos de Helena. |
+| 🟢 | Photo « salle-roses » | Recadrée pour exclure un client reconnaissable. |
+| 🟠 | Photo « escalier » | Trop basse résolution (415×739) : usage en vignette uniquement. Une version HD serait bienvenue. |
+
+## Menu
+
+Voir `MENU_VERIFICATION.md` (créé à l'étape 6) : prix manquants, ambiguïtés de transcription et corrections orthographiques à faire valider.

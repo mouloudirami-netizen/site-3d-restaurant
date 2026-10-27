@@ -1,0 +1,41 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.script {
+  font-size: var(--step-4);
+  color: var(--accent);
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: var(--step-3);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.ornament {
+  margin-top: var(--space-2xs);
+}
+
+.light .title,
+.light .script,
+.light :global(.eyebrow) {
+  color: var(--white);
+}

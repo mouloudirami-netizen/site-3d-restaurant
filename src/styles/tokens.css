@@ -1,0 +1,79 @@
+/* Design tokens Helena — palette relevée sur le logo et le menu. */
+:root {
+  /* Couleurs */
+  --rose-50: #fdf7f6;
+  --rose-100: #f6e6e6;
+  --rose-200: #ebcfd2; /* rose poudré du menu, dominante */
+  --rose-300: #dcb0b6;
+  --rose-400: #c98a95;
+  --bordeaux-500: #8a2c44;
+  --bordeaux-600: #6e1f33; /* accent, titres du menu brunch */
+  --bordeaux-700: #521726;
+  --cream: #fbf6f1;
+  --ivory: #f4ece3;
+  --ink: #2a1a1c; /* texte principal */
+  --ink-soft: #5e4a4d; /* texte secondaire, contraste AA sur crème et rose */
+  --gold: #b8956a; /* filets décoratifs uniquement, jamais pour du texte */
+  --white: #ffffff;
+
+  --surface: var(--cream);
+  --surface-alt: var(--rose-100);
+  --surface-strong: var(--rose-200);
+  --text: var(--ink);
+  --text-muted: var(--ink-soft);
+  --accent: var(--bordeaux-600);
+  --accent-hover: var(--bordeaux-700);
+  --line: rgb(110 31 51 / 0.18);
+  --focus: var(--bordeaux-500);
+
+  /* Typographies */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-script: 'Pinyon Script', 'Cormorant Garamond', cursive;
+  --font-body: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Échelle typographique fluide (mobile → desktop) */
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2.1rem);
+  --step-3: clamp(2rem, 1.6rem + 1.8vw, 3.2rem);
+  --step-4: clamp(2.6rem, 1.9rem + 3.2vw, 5rem);
+  --step-5: clamp(3.4rem, 2.2rem + 6vw, 8.5rem);
+
+  /* Espacements */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: clamp(4.5rem, 3rem + 6vw, 9rem);
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --content-max: 76rem;
+  --text-max: 38rem;
+
+  /* Formes & effets */
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 10px 40px -12px rgb(82 23 38 / 0.25);
+  --shadow-lift: 0 18px 50px -14px rgb(82 23 38 / 0.35);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 380ms;
+  --dur-slow: 900ms;
+
+  /* Barre d'action mobile (bouton d'appel) */
+  --mobile-bar-height: 4.25rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}

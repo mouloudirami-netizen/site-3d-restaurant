@@ -1,0 +1,104 @@
+.button {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--white);
+  --btn-border: transparent;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 3rem;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+/* Remplissage qui monte depuis le bas au survol */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-fill, var(--accent-hover));
+  transform: translateY(101%);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  transform: translateY(0);
+}
+
+.button:hover {
+  box-shadow: var(--shadow-soft);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+.endIcon {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.button:hover .endIcon {
+  transform: translateX(4px);
+}
+
+.primary {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--white);
+}
+
+.outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--accent);
+  --btn-border: var(--accent);
+  --btn-fill: var(--accent);
+}
+
+.outline:hover,
+.outline:focus-visible {
+  --btn-fg: var(--white);
+}
+
+/* Sur fond vidéo / photo */
+.light {
+  --btn-bg: rgb(255 255 255 / 0.12);
+  --btn-fg: var(--white);
+  --btn-border: rgb(255 255 255 / 0.7);
+  --btn-fill: var(--white);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.light:hover,
+.light:focus-visible {
+  --btn-fg: var(--accent);
+}
+
+.ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--accent);
+  --btn-fill: var(--rose-100);
+  padding-inline: 1rem;
+}

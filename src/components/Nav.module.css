@@ -1,0 +1,229 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--white);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.nav::after {
+  /* voile dégradé pour garder la nav lisible sur la vidéo */
+  content: '';
+  position: absolute;
+  inset: 0 0 -2rem;
+  z-index: -1;
+  background: linear-gradient(rgb(42 26 28 / 0.45), transparent);
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.solid {
+  color: var(--text);
+  background: rgb(251 246 241 / 0.97);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.solid::after {
+  opacity: 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-xs) var(--gutter);
+  min-height: 4.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.brandSub {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+
+.desktopLinks {
+  display: none;
+}
+
+.desktopLinks ul {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+/* soulignement animé */
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.2rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.phone {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--dur-fast), color var(--dur-fast);
+}
+
+.phone:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: -0.5rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.drawer {
+  position: fixed;
+  inset: 4.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-l) var(--gutter) calc(var(--space-l) + var(--mobile-bar-height) + var(--safe-bottom));
+  background: var(--cream);
+  color: var(--text);
+  overflow-y: auto;
+}
+
+.drawer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawer li {
+  border-bottom: 1px solid var(--line);
+  animation: drawerIn var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+.drawer a {
+  display: block;
+  padding: var(--space-s) 0;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  text-decoration: none;
+}
+
+.drawerFoot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: var(--space-l);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.drawerFoot :global(.script) {
+  font-size: var(--step-3);
+  color: var(--accent);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@keyframes drawerIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (min-width: 64rem) {
+  .desktopLinks {
+    display: block;
+  }
+
+  .toggle,
+  .drawer {
+    display: none;
+  }
+
+  .brand {
+    margin-right: 0;
+  }
+
+  .desktopLinks {
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 80rem) {
+  .phone {
+    display: inline-flex;
+  }
+}
+
+.drawer[hidden] {
+  display: none;
+}
