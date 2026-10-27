@@ -161,7 +161,7 @@ export function Hero() {
           <span data-reveal="line">chaque instant se savoure.</span>
         </p>
         <p className={styles.sub} data-reveal="line">
-          Cafés, brunchs et tables gourmandes à {restaurant.neighborhood}.
+          Cafés, brunchs et tables gourmandes à {restaurant.address.city}.
         </p>
         <div className={styles.actions}>
           <span data-reveal="cta">
@@ -180,7 +180,7 @@ export function Hero() {
       <div className={styles.foot} data-reveal="foot">
         <div className={styles.status}>
           <p className={styles.caption} aria-live="polite">
-            {showPhoto ? `La salle · ${restaurant.neighborhood}` : useFilm ? 'Film d’ambiance' : ''}
+            {showPhoto ? `La salle · ${restaurant.address.city}` : useFilm ? 'Film d’ambiance' : ''}
           </p>
           {useFilm &&
             (phase === 'film' ? (

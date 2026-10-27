@@ -18,7 +18,7 @@ La commande affiche une adresse « Network » (ex. `http://192.168.1.20:4173`) :
 ### Accueil
 - [ ] Une image s'affiche immédiatement (pas d'écran blanc ou noir).
 - [ ] Le film démarre seul, sans son ; les pétales roses tombent doucement par-dessus.
-- [ ] Après ~8 s, fondu vers la vraie photo de la salle ; la légende passe à « La salle · El Biar ».
+- [ ] Après ~8 s, fondu vers la vraie photo de la salle ; la légende passe à « La salle · Val d'Hydra ».
 - [ ] « Pause » met le film en pause ; « Revoir le film » le relance.
 - [ ] iPhone en mode économie d'énergie : la vraie photo s'affiche directement (normal).
 
