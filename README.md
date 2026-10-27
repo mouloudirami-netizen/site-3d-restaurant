@@ -30,7 +30,25 @@ npm run build        # doit se terminer par « ✓ built », sans erreur ni aler
 
 Tests manuels sur téléphone : `TEST_MOBILE.md`.
 
-## Mettre en ligne
+## Version en ligne (GitHub Pages)
+
+**https://mouloudirami-netizen.github.io/site-3d-restaurant/helena/**
+
+La branche `gh-pages` de ce dépôt héberge deux sites : **Thaisty Crousty à la racine** (ne pas toucher)
+et **Helena dans le dossier `helena/`**. Pour publier une mise à jour de Helena :
+
+```bash
+npx vite build --base=./ --outDir /tmp/helena-build --emptyOutDir
+git worktree add /tmp/ghp gh-pages
+rm -rf /tmp/ghp/helena && mkdir /tmp/ghp/helena && cp -r /tmp/helena-build/. /tmp/ghp/helena/
+cd /tmp/ghp && git add helena && git commit -m "Mise à jour du site Helena" && git push origin gh-pages
+cd - && git worktree remove /tmp/ghp
+```
+
+GitHub redéploie automatiquement en 1 à 2 minutes (onglet « Actions » du dépôt).
+Ne jamais supprimer ou écraser les fichiers à la racine de `gh-pages` (site Thaisty Crousty).
+
+## Mettre en ligne sur un autre hébergeur
 
 `npm run build` produit un site **100 % statique** dans `dist/` (environ 9 Mo, dont 6,6 Mo de médias) :
 il peut être hébergé tel quel sur n'importe quel hébergeur statique (Netlify, Vercel, Cloudflare Pages,
