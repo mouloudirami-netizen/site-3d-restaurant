@@ -6,8 +6,8 @@ Légende : 🔴 bloquant pour la publication · 🟠 important · 🟢 confirmé
 
 | Statut | Élément | Détail |
 |---|---|---|
-| 🟢 | Localité | Sur demande du commanditaire, « Val d'Hydra » remplace « El Biar » partout (accueil, adresse, pied de page, titre, données structurées, image de partage). |
-| 🟠 | Adresse postale | Affichée : 43 Bd du 11 Décembre 1960, Val d'Hydra 16100, Algérie. Le code postal 16100 et la rue proviennent de l'adresse initiale (« El Biar 16100 ») : à confirmer avec le restaurant que rue + code postal + « Val d'Hydra » forment bien l'adresse officielle (notamment pour Google). |
+| 🟢 | Localité mise en avant | Sur demande du commanditaire, « Val d'Hydra » (`restaurant.area`) : accueil, ligne © du pied de page, titre, description, image de partage. |
+| 🟢 | Adresse postale | Sur demande du commanditaire, l'adresse complète garde « El Biar » : 43 Bd du 11 Décembre 1960, El Biar 16100, Algérie (bloc Adresse, copie, pied de page, données structurées). |
 | 🟠 | Lien Google Maps | Fourni par le commanditaire : https://maps.app.goo.gl/jvGTbnBpugh7GLYT6?g_st=iw — intégré (bouton « Itinéraire » + pied de page). Destination non vérifiable depuis l'environnement de développement (accès réseau à Google Maps bloqué) : cliquer une fois pour confirmer qu'il ouvre bien la fiche Helena. |
 | 🟢 | Téléphone | +213 5 54 06 22 54 (`tel:+213554062254`). |
 | 🟢 | Horaires | Sam.–jeu. 08 h–23 h 30 ; vendredi 08 h–12 h et 14 h–23 h 30. |

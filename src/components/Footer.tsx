@@ -70,7 +70,7 @@ export function Footer() {
       <div className={`container ${styles.bottom}`}>
         <Ornament className={styles.ornament} />
         <p>
-          © {new Date().getFullYear()} {restaurant.name} · {city}, Alger
+          © {new Date().getFullYear()} {restaurant.name} · {restaurant.area}, Alger
         </p>
         <p>Prix en dinars algériens (DA), à titre indicatif.</p>
       </div>

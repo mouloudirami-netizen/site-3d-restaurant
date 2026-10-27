@@ -18,10 +18,13 @@ export const restaurant = {
   name: 'Helena Restaurant & Café',
   shortName: 'Helena',
   tagline: 'Restaurant · Café · Brunch',
+  /** Localité mise en avant dans les textes (accueil, pied de page, référencement). */
+  area: 'Val d’Hydra',
+  /** Adresse postale complète : la commune reste El Biar (demande du commanditaire). */
   address: {
     street: '43 Bd du 11 Décembre 1960',
     postalCode: '16100',
-    city: 'Val d’Hydra',
+    city: 'El Biar',
     country: 'Algérie',
   },
   phone: {
