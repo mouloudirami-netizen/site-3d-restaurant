@@ -1,3 +1,4 @@
+import { mediaUrl } from '../lib/media';
 import styles from './Logo.module.css';
 
 interface LogoProps {
@@ -12,7 +13,7 @@ interface LogoProps {
 export function Logo({ size = 56, alt = 'Helena Restaurant & Café', className }: LogoProps) {
   return (
     <img
-      src="/media/logo-temp.webp"
+      src={mediaUrl('logo-temp.webp')}
       alt={alt}
       width={size}
       height={size}

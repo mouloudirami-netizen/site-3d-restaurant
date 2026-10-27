@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { restaurant } from '../data/restaurant';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { mediaUrl } from '../lib/media';
 import { gsap, prefersLightMedia, prefersReducedMotion } from '../lib/motion';
 import { Button } from './Button';
 import { PetalField } from './PetalField';
@@ -15,8 +16,8 @@ const START_TIMEOUT_MS = 4000;
 
 const pickVideo = () =>
   window.matchMedia('(max-aspect-ratio: 1/1)').matches
-    ? { src: '/media/hero-mobile.mp4', poster: '/media/hero-poster-mobile.webp' }
-    : { src: '/media/hero-desktop.mp4', poster: '/media/hero-poster-desktop.webp' };
+    ? { src: mediaUrl('hero-mobile.mp4'), poster: mediaUrl('hero-poster-mobile.webp') }
+    : { src: mediaUrl('hero-desktop.mp4'), poster: mediaUrl('hero-poster-desktop.webp') };
 
 /**
  * Hero « option C » : le film d'ambiance s'ouvre sur le site, puis un fondu

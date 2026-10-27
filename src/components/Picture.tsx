@@ -1,4 +1,5 @@
 import type { ImgHTMLAttributes } from 'react';
+import { mediaUrl } from '../lib/media';
 
 interface PictureProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'> {
   /** Nom de base généré par scripts/optimize-media.sh (ex. « salle-roses »). */
@@ -9,7 +10,7 @@ interface PictureProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' |
 }
 
 const srcSet = (name: string, ext: 'avif' | 'webp') =>
-  `/media/${name}-640.${ext} 640w, /media/${name}-1280.${ext} 1280w`;
+  `${mediaUrl(`${name}-640.${ext}`)} 640w, ${mediaUrl(`${name}-1280.${ext}`)} 1280w`;
 
 /** Image responsive AVIF → WebP, chargement différé par défaut. */
 export function Picture({ name, alt, sizes = '100vw', priority = false, ...rest }: PictureProps) {
@@ -18,7 +19,7 @@ export function Picture({ name, alt, sizes = '100vw', priority = false, ...rest 
       <source type="image/avif" srcSet={srcSet(name, 'avif')} sizes={sizes} />
       <source type="image/webp" srcSet={srcSet(name, 'webp')} sizes={sizes} />
       <img
-        src={`/media/${name}-1280.webp`}
+        src={mediaUrl(`${name}-1280.webp`)}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
