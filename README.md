@@ -15,6 +15,7 @@ bash scripts/optimize-media.sh   # régénérer les images AVIF/WebP depuis medi
 
 ## Où modifier le contenu
 
+- Carte (produits, prix, descriptions) : `src/data/menu.ts` — voir `MENU_VERIFICATION.md`
 - Informations pratiques (adresse, horaires, téléphone, réseaux) : `src/data/restaurant.ts`
 - Couleurs, typographies, espacements : `src/styles/tokens.css`
 - Éléments à confirmer : `CONTENT_CHECKLIST.md`

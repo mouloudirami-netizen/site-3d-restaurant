@@ -1,5 +1,6 @@
 import { Brunch } from './components/Brunch';
 import { CallButton } from './components/CallButton';
+import { Carte } from './components/Carte';
 import { Cursor } from './components/Cursor';
 import { Gallery } from './components/Gallery';
 import { Hero } from './components/Hero';
@@ -24,6 +25,7 @@ export function App() {
         <Hero />
         <Univers />
         <Brunch />
+        <Carte />
         <Gallery />
       </main>
       <CallButton />

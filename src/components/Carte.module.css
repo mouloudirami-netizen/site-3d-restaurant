@@ -1,0 +1,317 @@
+.carte {
+  background: var(--rose-100);
+}
+
+/* ---------- Familles ---------- */
+.families {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-s);
+  margin: 0 0 var(--space-xl);
+  padding: 0;
+  list-style: none;
+}
+
+.family {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+  text-align: left;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.family:hover,
+.family:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.familyImage,
+.familyImage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.familyImage img {
+  transition: transform 1.2s var(--ease-out);
+}
+
+.family:hover .familyImage img {
+  transform: scale(1.07);
+}
+
+.familyImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 35%, rgb(42 26 28 / 0.8));
+}
+
+.familyBody {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--space-s);
+}
+
+.familyScript {
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
+}
+
+.familyMeta {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ---------- Barre d'outils ---------- */
+.toolbar {
+  position: sticky;
+  top: 4.5rem; /* hauteur de la navigation */
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: var(--space-2xs) var(--gutter);
+  background: rgb(246 230 230 / 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.65);
+}
+
+.tab {
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+.tab:hover {
+  color: var(--accent);
+}
+
+.tab[aria-selected='true'] {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.tab:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--text-muted);
+}
+
+.search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(138 44 68 / 0.15);
+}
+
+.search svg {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 16px; /* évite le zoom automatique sur iOS */
+  color: var(--text);
+  outline: none;
+}
+
+/* ---------- Rubriques ---------- */
+.chips {
+  display: flex;
+  gap: 0.4rem;
+  margin: var(--space-s) calc(var(--gutter) * -1) 0;
+  padding: 0.25rem var(--gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, black var(--gutter), black calc(100% - var(--gutter)), transparent);
+  mask-image: linear-gradient(to right, transparent, black var(--gutter), black calc(100% - var(--gutter)), transparent);
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chips a {
+  flex: none;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast),
+    color var(--dur-fast),
+    border-color var(--dur-fast);
+}
+
+.chips a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Contenu ---------- */
+.panel {
+  padding-top: var(--space-l);
+  animation: panelIn 0.6s var(--ease-out);
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.intro {
+  margin-bottom: var(--space-l);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.columns {
+  columns: 1;
+}
+
+.single {
+  max-width: 44rem;
+}
+
+.resultsInfo {
+  margin-bottom: var(--space-l);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.resultGroup {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.empty {
+  padding: var(--space-xl) 0;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.emptyTitle {
+  margin-bottom: var(--space-2xs);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  color: var(--text);
+}
+
+.legal {
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .families {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .toolbar {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .tabs {
+    flex: 1.4;
+  }
+
+  .search {
+    flex: 1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .columns {
+    columns: 2;
+    column-gap: var(--space-2xl);
+  }
+
+  .toolbar {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .chips {
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}

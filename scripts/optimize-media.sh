@@ -15,6 +15,8 @@ IMAGES=(
   "pancakes-banane|media-source/reel/pancakes-banane.jpg|"
   "smoothie-fraise|media-source/reel/smoothie-fraise.jpg|"
   "escalier|media-source/reel/escalier.jpg|"
+  "brunch-crepes|media-source/reel/brunch-crepes.jpg|crop=600:600:0:640"   # recadrée sur l’assiette (bouteilles de marque et texte exclus)
+  "jus-pomme|media-source/reel/jus-pomme.jpg|crop=iw:1700:0:250"
   "ambiance-salle|media-source/ambiance/salle-vue-mer.jpg|"
   "ambiance-latte|media-source/ambiance/latte-rose.jpg|"
   "ambiance-cocktails|media-source/ambiance/cocktails.jpg|"

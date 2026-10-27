@@ -1,0 +1,76 @@
+.block {
+  break-inside: avoid;
+  margin-bottom: var(--space-xl);
+  scroll-margin-top: 10rem;
+}
+
+.head {
+  margin-bottom: var(--space-s);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  font-family: var(--font-script);
+  font-size: var(--step-3);
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+}
+
+.supplements {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-s);
+  padding: var(--space-s);
+  border: 1px dashed rgb(110 31 51 / 0.3);
+  border-radius: var(--radius-m);
+}
+
+.groupTitle {
+  margin-bottom: var(--space-2xs);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  font-size: 0.82rem;
+}
+
+.chips span {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.note {
+  margin-top: var(--space-s);
+  font-size: var(--step--1);
+  font-style: italic;
+  color: var(--text-muted);
+}

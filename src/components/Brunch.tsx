@@ -58,7 +58,7 @@ export function Brunch() {
                   <h3 className={styles.groupTitle}>{group.title}</h3>
                   <ul className={styles.chips}>
                     {group.items.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item.name}>{item.name}</li>
                     ))}
                   </ul>
                 </div>

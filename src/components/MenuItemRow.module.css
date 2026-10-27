@@ -1,5 +1,6 @@
 .row {
   padding-block: var(--space-xs);
+  list-style: none;
 }
 
 .line {
@@ -47,4 +48,40 @@
   font-style: italic;
   color: var(--text-muted);
   line-height: 1.5;
+}
+
+.includes {
+  display: grid;
+  gap: 0.2rem;
+  margin: var(--space-2xs) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includes li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+.includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.note {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--rose-100);
+  font-size: 0.78rem;
+  color: var(--accent);
 }

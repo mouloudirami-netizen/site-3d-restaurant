@@ -32,7 +32,7 @@ Légende : 🔴 bloquant pour la publication · 🟠 important · 🟢 confirmé
 
 ## Menu
 
-Voir `MENU_VERIFICATION.md` (créé à l'étape 6) : prix manquants, ambiguïtés de transcription et corrections orthographiques à faire valider.
+Voir `MENU_VERIFICATION.md` : prix manquants, ambiguïtés de transcription et corrections orthographiques à faire valider.
 
 ## Hero (étape 4)
 

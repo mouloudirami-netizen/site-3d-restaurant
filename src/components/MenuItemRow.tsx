@@ -1,22 +1,17 @@
+import type { MenuItem } from '../data/menu';
 import { formatPrice } from '../lib/format';
 import styles from './MenuItemRow.module.css';
 
 interface MenuItemRowProps {
-  name: string;
-  price: number | null;
-  description?: string;
+  item: MenuItem;
   /** Texte affiché quand le prix n'est pas renseigné sur le menu. */
   missingPriceLabel?: string;
 }
 
-export function MenuItemRow({
-  name,
-  price,
-  description,
-  missingPriceLabel = 'Nous consulter',
-}: MenuItemRowProps) {
+export function MenuItemRow({ item, missingPriceLabel = 'Prix : nous consulter' }: MenuItemRowProps) {
+  const { name, price, description, includes, note } = item;
   return (
-    <div className={styles.row}>
+    <li className={styles.row}>
       <div className={styles.line}>
         <h4 className={styles.name}>{name}</h4>
         <span className={styles.leader} aria-hidden="true" />
@@ -29,6 +24,14 @@ export function MenuItemRow({
         )}
       </div>
       {description && <p className={styles.description}>{description}</p>}
-    </div>
+      {includes && (
+        <ul className={styles.includes}>
+          {includes.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      )}
+      {note && <p className={styles.note}>{note}</p>}
+    </li>
   );
 }
