@@ -31,3 +31,13 @@ for entry in "${IMAGES[@]}"; do
   done
   echo "✓ $name"
 done
+
+# Vidéo d'accueil : version ordinateur (16:9) et mobile (recadrage vertical centré), sans piste audio.
+VIDEO=media-source/ambiance/video-accueil.mp4
+ffmpeg -v error -y -i "$VIDEO" -an -vf "scale=1600:-2" -c:v libx264 -preset slow -crf 26 \
+  -profile:v high -pix_fmt yuv420p -movflags +faststart "$OUT/hero-desktop.mp4"
+ffmpeg -v error -y -i "$VIDEO" -an -vf "crop=608:1080:(iw-608)/2:0,scale=540:-2" -c:v libx264 -preset slow -crf 27 \
+  -profile:v high -pix_fmt yuv420p -movflags +faststart "$OUT/hero-mobile.mp4"
+ffmpeg -v error -y -i "$VIDEO" -vf "scale=1600:-2" -frames:v 1 -c:v libwebp -quality 80 "$OUT/hero-poster-desktop.webp"
+ffmpeg -v error -y -i "$VIDEO" -vf "crop=608:1080:(iw-608)/2:0,scale=540:-2" -frames:v 1 -c:v libwebp -quality 80 "$OUT/hero-poster-mobile.webp"
+echo "✓ vidéo d'accueil"

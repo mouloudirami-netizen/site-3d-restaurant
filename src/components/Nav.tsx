@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { navLinks } from '../data/navigation';
 import { restaurant } from '../data/restaurant';
 import { useScrolled } from '../hooks/useScrolled';
+import { getLenis } from '../hooks/useSmoothScroll';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
 import styles from './Nav.module.css';
@@ -20,9 +21,11 @@ export function Nav() {
       }
     };
     document.documentElement.style.overflow = 'hidden';
+    getLenis()?.stop();
     window.addEventListener('keydown', onKey);
     return () => {
       document.documentElement.style.overflow = '';
+      getLenis()?.start();
       window.removeEventListener('keydown', onKey);
     };
   }, [open]);
@@ -33,7 +36,7 @@ export function Nav() {
     <header className={[styles.nav, solid && styles.solid].filter(Boolean).join(' ')}>
       <div className={styles.inner}>
         <a href="#accueil" className={styles.brand} onClick={() => setOpen(false)}>
-          <Logo size={44} />
+          <Logo size={44} alt="" />
           <span className={styles.brandText}>
             <span className={styles.brandName}>Helena</span>
             <span className={styles.brandSub}>Restaurant &amp; Café</span>

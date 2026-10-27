@@ -1,7 +1,6 @@
 import { Button } from '../components/Button';
 import { MenuItemRow } from '../components/MenuItemRow';
 import { Ornament } from '../components/Ornament';
-import { Picture } from '../components/Picture';
 import { SectionHeading } from '../components/SectionHeading';
 import { restaurant } from '../data/restaurant';
 import styles from './StyleGuide.module.css';
@@ -19,25 +18,7 @@ const swatches = [
 export function StyleGuide() {
   return (
     <>
-      <section id="accueil" className={styles.preview}>
-        <Picture name="salle-roses" alt="La salle de Helena et son plafond de roses" priority className={styles.previewImg} />
-        <div className={styles.previewOverlay} />
-        <div className={styles.previewContent}>
-          <p className={styles.previewEyebrow}>{restaurant.tagline}</p>
-          <h1 className={styles.previewTitle}>Helena</h1>
-          <p className={styles.previewLead}>Aperçu des fondations — le vrai hero arrive à l’étape 4.</p>
-          <div className={styles.actions}>
-            <Button href="#carte" variant="primary" icon="arrow" iconPosition="end">
-              Découvrir la carte
-            </Button>
-            <Button href="#infos" variant="light" icon="map">
-              Nous trouver
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="section paper" style={{ background: 'var(--rose-100)' }}>
+      <section id="univers" className="section paper" style={{ background: 'var(--rose-100)' }}>
         <div className="container">
           <SectionHeading eyebrow="Fondations" script="Palette" title={<>Les couleurs <em>Helena</em></>} />
           <ul className={styles.swatches}>

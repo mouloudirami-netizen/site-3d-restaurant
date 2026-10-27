@@ -33,3 +33,10 @@ Légende : 🔴 bloquant pour la publication · 🟠 important · 🟢 confirmé
 ## Menu
 
 Voir `MENU_VERIFICATION.md` (créé à l'étape 6) : prix manquants, ambiguïtés de transcription et corrections orthographiques à faire valider.
+
+## Hero (étape 4)
+
+| Statut | Élément | Détail |
+|---|---|---|
+| 🟠 | Photo de fin du hero | « salle-roses » (1170 px de large) est légèrement agrandie sur grand écran et laisse voir l'écran TV en bas. Une photo HD du plafond fleuri, en format paysage, améliorerait nettement le rendu. |
+| 🟢 | Accroche | « Sous une voûte de fleurs, chaque instant se savoure. » — texte original, sans promesse factuelle. |
