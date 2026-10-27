@@ -8,7 +8,7 @@ Légende : 🔴 bloquant pour la publication · 🟠 important · 🟢 confirmé
 |---|---|---|
 | 🟢 | Adresse | 43 Bd du 11 Décembre 1960, El Biar 16100, Algérie — confirmée par le commanditaire. |
 | 🟠 | Mention « Val d'Hydra » / « HYDRA » | Présente sur le logo et une story Instagram. L'adresse retenue est El Biar ; le site n'affiche pas « Val d'Hydra ». À clarifier avec le restaurant (ancien site ? deuxième établissement ?). |
-| 🔴 | Lien Google Maps | Non fourni. `restaurant.mapsUrl` vaut `null` dans `src/data/restaurant.ts` ; le bouton itinéraire reste masqué tant qu'il n'est pas renseigné. |
+| 🟠 | Lien Google Maps | Fourni par le commanditaire : https://maps.app.goo.gl/jvGTbnBpugh7GLYT6?g_st=iw — intégré (bouton « Itinéraire » + pied de page). Destination non vérifiable depuis l'environnement de développement (accès réseau à Google Maps bloqué) : cliquer une fois pour confirmer qu'il ouvre bien la fiche Helena à El Biar. |
 | 🟢 | Téléphone | +213 5 54 06 22 54 (`tel:+213554062254`). |
 | 🟢 | Horaires | Sam.–jeu. 08 h–23 h 30 ; vendredi 08 h–12 h et 14 h–23 h 30. |
 | 🟠 | Brunch le vendredi | Le menu indique un brunch de 10 h à 16 h, mais le restaurant ferme de 12 h à 14 h le vendredi. Créneau du vendredi à confirmer. |
@@ -45,7 +45,7 @@ Voir `MENU_VERIFICATION.md` : prix manquants, ambiguïtés de transcription et c
 
 | Statut | Élément | Détail |
 |---|---|---|
-| 🔴 | Bouton « Itinéraire » | Masqué tant que `restaurant.mapsUrl` est vide. En mode développement, un emplacement en pointillés le signale ; il n'apparaît jamais dans la version de production. |
-| 🟢 | « Copier l'adresse » | Disponible en attendant le lien Google Maps. |
+| 🟢 | Bouton « Itinéraire » | Affiché (ouvre Google Maps dans un nouvel onglet). Mettre `mapsUrl` à `null` le masque. |
+| 🟢 | « Copier l'adresse » | Disponible à côté du bouton « Itinéraire ». |
 | 🟠 | Mentions ajoutées | Pied de page : « Prix en dinars algériens (DA), à titre indicatif. » et « El Biar, Alger ». À valider par le restaurant. |
 | 🟢 | Réservations | Aucune mention de réservation (service non confirmé) : le bloc s'intitule simplement « Téléphone ». |

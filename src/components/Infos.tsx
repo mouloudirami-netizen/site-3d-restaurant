@@ -52,8 +52,9 @@ export function Infos() {
             </address>
             <div className={styles.actions}>
               {restaurant.mapsUrl ? (
-                <Button href={restaurant.mapsUrl} variant="outline" icon="map">
+                <Button href={restaurant.mapsUrl} variant="outline" icon="map" data-magnetic>
                   Itinéraire
+                  <span className="sr-only"> (Google Maps, nouvel onglet)</span>
                 </Button>
               ) : (
                 import.meta.env.DEV && (

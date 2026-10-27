@@ -32,8 +32,8 @@ export const restaurant = {
     instagram: { url: 'https://www.instagram.com/helena_restaurant_cafe/', handle: '@helena_restaurant_cafe' },
     tiktok: { url: 'https://www.tiktok.com/@helena_restaurant?_r=1&_t=ZS-9AuYy0ihEMX', handle: '@helena_restaurant' },
   },
-  // À renseigner uniquement avec un lien vérifié (voir CONTENT_CHECKLIST.md).
-  mapsUrl: null as string | null,
+  // Lien fourni par le commanditaire (voir CONTENT_CHECKLIST.md). `null` masque le bouton « Itinéraire ».
+  mapsUrl: 'https://maps.app.goo.gl/jvGTbnBpugh7GLYT6?g_st=iw' as string | null,
   hours: [
     { label: 'Samedi – Jeudi', days: [6, 0, 1, 2, 3, 4], slots: [{ open: '08:00', close: '23:30' }] },
     {

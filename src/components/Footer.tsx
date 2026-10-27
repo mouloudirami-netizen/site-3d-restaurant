@@ -38,6 +38,12 @@ export function Footer() {
           <a href={restaurant.phone.href} className={styles.phone}>
             <Icon name="phone" size={16} /> {restaurant.phone.display}
           </a>
+          {restaurant.mapsUrl && (
+            <a href={restaurant.mapsUrl} target="_blank" rel="noopener noreferrer" className={styles.phone}>
+              <Icon name="map" size={16} /> Itinéraire Google Maps
+              <span className="sr-only">(nouvel onglet)</span>
+            </a>
+          )}
         </div>
 
         <div className={styles.col}>
