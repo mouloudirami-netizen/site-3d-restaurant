@@ -18,6 +18,8 @@ export const restaurant = {
   name: 'Helena Restaurant & Café',
   shortName: 'Helena',
   tagline: 'Restaurant · Café · Brunch',
+  /** Quartier affiché dans l'accueil (demande du commanditaire), distinct de l'adresse postale. */
+  neighborhood: 'Val d’Hydra',
   address: {
     street: '43 Bd du 11 Décembre 1960',
     postalCode: '16100',
