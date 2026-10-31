@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>braise — restaurant au feu de sarment, Lyon</title>
+  <meta name="description" content="braise, restaurant au feu de sarment rue Mercière à Lyon. Un menu en sept temps cuit sur la braise, du mardi au samedi. 24 couverts.">
+  <meta name="theme-color" content="#351a2b">
+  <link rel="preload" as="image" href="/media/hero-poster.webp" fetchpriority="high">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23351a2b'/%3E%3Ccircle cx='16' cy='18' r='8' fill='%23edccbe'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <div class="split">
+    <!-- The fixed half: fire video, then the signature dish in 3D. Decorative; everything it shows is also in the text. -->
+    <div class="stage">
+      <div class="stage__frame" role="img" aria-label="Le grill de braise : des braises de sarment sous une grille en fonte, puis la betterave sous la cendre dressée dans l'assiette.">
+        <video class="stage__video" autoplay muted loop playsinline preload="metadata"
+               poster="/media/hero-poster.webp" disablepictureinpicture disableremoteplayback
+               width="900" height="1125">
+          <source src="/media/hero-720.h264.mp4" type="video/mp4" media="(max-width: 767px)">
+          <source src="/media/hero-1125.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+          <source src="/media/hero-1125.h264.mp4" type="video/mp4">
+        </video>
+        <img class="stage__still" src="/media/plate-still.webp" alt="" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="stage__canvas"></div>
+      </div>
+      <button class="video-toggle" type="button" aria-pressed="false">Mettre la vidéo en pause</button>
+    </div>
+
+    <div class="col">
+      <header class="nav">
+        <a class="nav__home" href="#top" aria-label="braise, haut de page">braise</a>
+        <nav aria-label="Principale">
+          <ul class="nav__list">
+            <li><a href="#le-plat">Le plat</a></li>
+            <li><a href="#le-menu">Le menu</a></li>
+            <li><a href="#la-maison">La maison</a></li>
+            <li><a href="#venir">Venir</a></li>
+            <li><a class="nav__action btn" href="#reserver">Réserver une table</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="contenu">
+        <section class="hero" id="top" aria-labelledby="titre">
+          <div class="hero__window" aria-hidden="true"></div>
+          <div class="hero__body">
+            <p class="hero__lead" data-hero>Cuisine au feu de sarment, rue Mercière à Lyon. Un menu en sept temps, cuit sur la braise, du mardi au samedi.</p>
+            <p class="fire" data-hero data-fire>
+              <span class="fire__dot" aria-hidden="true"></span>
+              <span class="fire__text">Le feu est allumé à 17 h, du mardi au samedi.</span>
+            </p>
+          </div>
+          <h1 class="wordmark" id="titre" aria-label="braise, restaurant au feu de sarment à Lyon">
+            <span class="wordmark__inner" aria-hidden="true"><span class="wm-l">b</span><span class="wm-l">r</span><span class="wm-l">a</span><span class="wm-l">i</span><span class="wm-l">s</span><span class="wm-l">e</span></span>
+          </h1>
+        </section>
+
+        <section class="intro field-paper" aria-labelledby="intro-titre">
+          <div class="intro__col">
+            <h2 class="h2" id="intro-titre" data-r>Un feu, vingt-quatre couverts</h2>
+            <p class="intro__first" data-r>Chaque soir à 17 h, on allume le grill avec des sarments de vigne du Beaujolais. À 19 h 30, il ne reste que la braise : c'est elle qui cuit tout le menu.</p>
+            <p data-r>Pas de gaz, pas de plaque. Une grille en fonte que l'on monte et que l'on descend, un four à bois pour le pain, et la cendre qu'on garde pour cuire les légumes dedans.</p>
+            <p data-r>La salle compte vingt-quatre couverts, dont six au comptoir, face au feu. Le menu change avec ce que nous apportent quatre maraîchers des monts du Lyonnais.</p>
+            <p data-r>Le midi, seulement le samedi. Le soir, du mardi au samedi, un seul service.</p>
+          </div>
+        </section>
+
+        <section class="dish field-surface" id="le-plat" aria-labelledby="plat-titre">
+          <div class="dish__window" aria-hidden="true"></div>
+          <div class="dish__body">
+            <div class="tabs" role="group" aria-label="Regarder l'assiette">
+              <button type="button" class="tab" data-view="side" aria-pressed="true">De côté</button>
+              <button type="button" class="tab" data-view="top" aria-pressed="false">De haut</button>
+              <button type="button" class="tab" data-view="close" aria-pressed="false">De près</button>
+            </div>
+            <h2 class="h2" id="plat-titre" data-r>Betterave sous la cendre</h2>
+            <p class="dish__desc" data-r>Le plat qui ne quitte jamais la carte. Une betterave crapaudine enfouie six heures dans la cendre chaude, ouverte en deux au moment de servir.</p>
+            <ol class="steps" aria-label="Le dressage, dans l'ordre">
+              <li class="step" data-step="0"><span class="step__name">La crème fumée</span><span class="step__text">Crème crue de la ferme Dumas, fumée au sarment, tirée à la cuillère.</span></li>
+              <li class="step" data-step="1"><span class="step__name">La betterave</span><span class="step__text">Sortie de la cendre, croûte noire, cœur encore tiède.</span></li>
+              <li class="step" data-step="2"><span class="step__name">Le jus</span><span class="step__text">Jus de betterave réduit avec un trait de vinaigre de cidre.</span></li>
+              <li class="step" data-step="3"><span class="step__name">La noisette</span><span class="step__text">Noisettes torréfiées sur la braise, concassées au couteau.</span></li>
+              <li class="step" data-step="4"><span class="step__name">La capucine</span><span class="step__text">Feuilles et fleurs, cueillies le matin même.</span></li>
+              <li class="step" data-step="5"><span class="step__name">La cendre</span><span class="step__text">Une pincée de cendre de poireau, pour finir.</span></li>
+            </ol>
+            <div class="cells">
+              <a class="cell cell--ink" href="#le-menu">Voir le menu</a>
+              <a class="cell cell--tone" href="#reserver">Réserver</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu field-ink" id="le-menu" aria-labelledby="menu-titre">
+          <div class="menu__col">
+            <h2 class="h2" id="menu-titre" data-r>Le menu en sept temps</h2>
+            <p class="menu__intro" data-r>98 € par personne, servi à toute la table. Dites-nous en réservant ce que vous ne mangez pas.</p>
+            <div class="menu__group">
+              <h3 class="menu__group-name">Pour ouvrir</h3>
+              <ul class="rows">
+                <li class="row"><span class="row__dot" style="--dot:#d8c48a"></span><span class="row__name">Pain au levain, beurre noisette à la braise</span><span class="row__val">Four à bois</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#4f7a3a"></span><span class="row__name">Poireau brûlé, vinaigrette de noisette</span><span class="row__val">Ferme Vial</span></li>
+              </ul>
+            </div>
+            <div class="menu__group">
+              <h3 class="menu__group-name">Sur le feu</h3>
+              <ul class="rows">
+                <li class="row"><span class="row__dot" style="--dot:#b0124d"></span><span class="row__name">Betterave sous la cendre, crème fumée</span><span class="row__val">Monts du Lyonnais</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#c9b8a6"></span><span class="row__name">Omble chevalier, beurre de sarment</span><span class="row__val">Lac Léman</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#7a2e2a"></span><span class="row__name">Pigeon de Bresse, jus aux baies de genièvre</span><span class="row__val">Bresse</span></li>
+              </ul>
+            </div>
+            <div class="menu__group">
+              <h3 class="menu__group-name">Pour finir</h3>
+              <ul class="rows">
+                <li class="row"><span class="row__dot" style="--dot:#f0e2c8"></span><span class="row__name">Saint-marcellin affiné, miel de châtaignier</span><span class="row__val">Isère</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#c98a3a"></span><span class="row__name">Poire rôtie dans la braise, glace au foin</span><span class="row__val">Verger Collin</span></li>
+              </ul>
+            </div>
+            <div class="menu__group">
+              <h3 class="menu__group-name">À côté</h3>
+              <ul class="rows">
+                <li class="row"><span class="row__dot" style="--dot:#edccbe"></span><span class="row__name">Menu en sept temps</span><span class="row__val">98 €</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#6b1d3a"></span><span class="row__name">Accord vins du Beaujolais et du Rhône</span><span class="row__val">55 €</span></li>
+                <li class="row"><span class="row__dot" style="--dot:#c45a6e"></span><span class="row__name">Accord sans alcool, jus et infusions</span><span class="row__val">38 €</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="letter field-paper" id="la-maison" aria-labelledby="lettre-titre">
+          <div class="letter__col">
+            <img class="letter__seal" src="/media/plate-close.webp" alt="" width="88" height="88" loading="lazy" decoding="async" data-r>
+            <h2 class="h2" id="lettre-titre" data-r>Pourquoi le feu</h2>
+            <p data-r>J'ai appris à cuisiner sur des pianos à induction, dans des cuisines où tout était réglé au degré près. J'y ai beaucoup appris, mais je n'y sentais rien.</p>
+            <p data-r>Le feu de sarment, lui, ne se règle pas. Il faut l'écouter, le nourrir, attendre qu'il tombe. <mark>Il impose son rythme, et c'est ce rythme que vous mangez.</mark></p>
+            <p data-r>La betterave sous la cendre est le premier plat que j'ai servi ici. Elle n'a jamais quitté la carte, parce qu'elle dit tout de la maison : un produit simple, du temps, et la braise.</p>
+            <p data-r>Venez tôt si vous le pouvez. À 19 h 30, le feu est encore vif ; c'est le plus beau moment.</p>
+            <p class="letter__sign" data-r>Inès Garnier<span>Cheffe et fondatrice</span></p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <section class="visit" id="venir" aria-labelledby="venir-titre">
+    <div class="visit__media">
+      <img class="visit__img" src="/media/embers.webp" alt="Braises de sarment rougeoyantes sous la grille du restaurant" width="1920" height="1080" loading="lazy" decoding="async">
+    </div>
+    <div class="visit__card" id="reserver">
+      <h2 class="visit__title" id="venir-titre">Venir dîner</h2>
+      <p class="visit__addr">14 rue Mercière<br>69002 Lyon</p>
+      <table class="hours">
+        <caption class="sr">Horaires d'ouverture</caption>
+        <tbody>
+          <tr><th scope="row">Mardi – vendredi</th><td>19 h 30 – 23 h</td></tr>
+          <tr><th scope="row">Samedi</th><td>12 h – 14 h, 19 h 30 – 23 h</td></tr>
+          <tr><th scope="row">Dimanche, lundi</th><td>Fermé</td></tr>
+        </tbody>
+      </table>
+      <p class="visit__tel"><a href="tel:+33478000000">04 78 00 00 00</a></p>
+      <a class="btn btn--block" href="mailto:table@braise.example?subject=R%C3%A9servation%20chez%20braise&body=Bonjour%2C%0A%0AJe%20souhaite%20r%C3%A9server%20une%20table%20pour%20%5Bnombre%5D%20personnes%20le%20%5Bdate%5D.%0A%0AAllergies%20ou%20aliments%20%C3%A0%20%C3%A9viter%20%3A%20%0A%0AMerci%20!">Réserver une table</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__media">
+      <img src="/media/plate-close.webp" alt="Gros plan sur la betterave sous la cendre, crème fumée et capucines" width="1000" height="1000" loading="lazy" decoding="async">
+    </div>
+    <div class="foot__body">
+      <p class="foot__mark">braise</p>
+      <nav aria-label="Pied de page">
+        <ul class="foot__menu">
+          <li><a href="#le-plat">Le plat</a></li>
+          <li><a href="#le-menu">Le menu</a></li>
+          <li><a href="#la-maison">La maison</a></li>
+          <li><a href="#venir">Venir</a></li>
+          <li><a href="#reserver">Réserver</a></li>
+        </ul>
+      </nav>
+      <div class="foot__blocks">
+        <p>14 rue Mercière, 69002 Lyon<br><a href="tel:+33478000000">04 78 00 00 00</a><br><a href="mailto:table@braise.example">table@braise.example</a></p>
+        <p><a href="https://www.instagram.com/" rel="noopener">Instagram</a><br>Carte cadeau sur demande</p>
+      </div>
+      <p class="foot__legal">© 2026 braise. L'abus d'alcool est dangereux pour la santé.</p>
+    </div>
+    <p class="foot__giant" aria-hidden="true">braise</p>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

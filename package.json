@@ -1,0 +1,24 @@
+{
+  "name": "site-3d-restaurant",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "render:fire": "node tools/render-fire.mjs .frames/hero 900 1125 240 30 0 0",
+    "render:stills": "node tools/render-stills.mjs http://localhost:5173 .frames"
+  },
+  "dependencies": {
+    "@fontsource/archivo": "^5.3.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.27",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
