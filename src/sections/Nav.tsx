@@ -7,10 +7,10 @@ import { lockScroll, scrollToTarget } from '../motion/lenis'
 import './nav.css'
 
 const LINKS = [
-  { href: '#recette', label: 'La recette' },
   { href: '#menu', label: 'Menu' },
-  { href: '#rituel', label: 'Le geste' },
   { href: '#desserts', label: 'Desserts' },
+  { href: '#recette', label: 'La recette' },
+  { href: '#rituel', label: 'Le geste' },
   { href: '#restaurants', label: 'Restaurants' },
 ]
 
@@ -25,7 +25,10 @@ export function Nav() {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 40)
-      setHidden(y > 400 && y > last + 2)
+      // Sur ordinateur la barre (et son bouton Commander) reste toujours visible ;
+      // sur téléphone elle se replie en descendant, le bouton flottant prend le relais.
+      const desktop = window.matchMedia('(min-width: 1024px)').matches
+      setHidden(!desktop && y > 400 && y > last + 2)
       if (y < last - 2) setHidden(false)
       last = y
     }

@@ -46,6 +46,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   overflow-x: clip;
   text-rendering: optimizeLegibility;
 }
@@ -328,4 +329,19 @@ section {
 .split-line-mask {
   padding-block: 0.12em;
   margin-block: -0.12em;
+}
+
+/* Grands noms de produits : la taille dépend de la largeur du conteneur et du nombre de lettres
+   (--chars, posé par fitStyle) pour ne jamais déborder. --fit-max plafonne la taille. */
+.fit-name {
+  display: block;
+  white-space: nowrap;
+  /* Repli sans requêtes de conteneur (Safari < 16) : basé sur la largeur d'écran */
+  font-size: min(var(--fit-max, 10rem), calc(80vw / (var(--chars, 6) * 0.78)));
+}
+
+@supports (width: 1cqi) {
+  .fit-name {
+    font-size: min(var(--fit-max, 10rem), calc(var(--fit-width, 90cqi) / (var(--chars, 6) * 0.78)));
+  }
 }

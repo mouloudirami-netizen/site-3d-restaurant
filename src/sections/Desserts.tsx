@@ -4,6 +4,7 @@ import { DESSERTS, DESSERT_RANGES } from '../data/desserts'
 import { useReveals } from '../motion/useReveals'
 import { PriceSlot } from '../components/PriceSlot'
 import { ArrowIcon } from '../components/Icons'
+import { fitStyle } from '../lib/fitName'
 import './desserts.css'
 
 type RangeId = (typeof DESSERT_RANGES)[number]['id']
@@ -80,7 +81,9 @@ export function Desserts() {
               transition={{ duration: 0.55, ease: EASE }}
             >
               <span className="spaced">{rangeInfo.spaced}</span>
-              <span className="desserts__name poster">{current.name}</span>
+              <span className="desserts__name poster fit-name" style={fitStyle(current.name)}>
+                {current.name}
+              </span>
               {current.sub && <span className="desserts__sub poster">{current.sub}</span>}
             </motion.div>
           </AnimatePresence>

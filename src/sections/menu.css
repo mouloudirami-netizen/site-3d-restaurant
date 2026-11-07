@@ -89,6 +89,7 @@
 
 .menu__stage {
   position: relative;
+  container-type: inline-size;
   display: grid;
   align-content: center;
   min-height: 600px;
@@ -109,7 +110,8 @@
 }
 
 .menu__stage-name {
-  font-size: clamp(6rem, 13vw, 13rem);
+  --fit-max: 12rem;
+  --fit-width: 92cqi;
   color: var(--cream);
   opacity: 0.95;
 }
@@ -127,7 +129,7 @@
 
 .menu__stage-img {
   position: relative;
-  margin-top: clamp(130px, 16vw, 210px);
+  margin-top: clamp(120px, 15cqi, 200px);
   width: 100%;
 }
 
@@ -302,6 +304,7 @@
 
 .menu-card {
   position: relative;
+  container-type: inline-size;
   flex: 0 0 min(82vw, 380px);
   scroll-snap-align: start;
   display: grid;
@@ -333,7 +336,9 @@
 }
 
 .menu-card__type .poster {
-  font-size: clamp(3.4rem, 17vw, 5rem);
+  --fit-max: 5rem;
+  --fit-width: 84cqi;
+  line-height: 0.95;
 }
 
 .menu-card__img {

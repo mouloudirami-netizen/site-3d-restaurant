@@ -88,10 +88,10 @@ export function FinalCta() {
           </div>
           <nav className="footer__nav" aria-label="Pied de page">
             {[
-              ['#recette', 'La recette'],
               ['#menu', 'Menu'],
-              ['#rituel', 'Le geste'],
               ['#desserts', 'Desserts'],
+              ['#recette', 'La recette'],
+              ['#rituel', 'Le geste'],
               ['#restaurants', 'Restaurants'],
             ].map(([href, label]) => (
               <a

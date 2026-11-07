@@ -1,5 +1,6 @@
 .order-dialog {
   width: min(640px, calc(100vw - 24px));
+  max-height: min(860px, calc(100vh - 24px));
   max-height: min(860px, calc(100dvh - 24px));
   margin: auto;
   padding: 0;
@@ -17,6 +18,7 @@
 
 .order-dialog__panel {
   position: relative;
+  max-height: min(860px, calc(100vh - 24px));
   max-height: min(860px, calc(100dvh - 24px));
   overflow-y: auto;
   overscroll-behavior: contain;

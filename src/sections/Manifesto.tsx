@@ -76,17 +76,17 @@ export function Manifesto() {
         <figure className="manifesto__media">
           <div className="manifesto__frame" data-reveal="clip">
             <img
-              src="media/photos/bols-alignes-1170.webp"
-              srcSet="media/photos/bols-alignes-640.webp 640w, media/photos/bols-alignes-1170.webp 1170w"
+              src="media/photos/bols-comptoir-1024.webp"
+              srcSet="media/photos/bols-comptoir-640.webp 640w, media/photos/bols-comptoir-1024.webp 1024w"
               sizes="(min-width: 900px) 34vw, 90vw"
-              width={1170}
-              height={1542}
+              width={1024}
+              height={1280}
               loading="lazy"
               decoding="async"
-              alt="Bols Thaisty Crousty alignés, nappés de sauce blanche et de sauce piquante, devant les sacs de livraison"
+              alt="Trois bols Thaisty Crousty nappés de sauce blanche et de sauce piquante, posés sur le comptoir"
             />
           </div>
-          <figcaption data-reveal="up">Sortie de cuisine · photo Thaisty Crousty</figcaption>
+          <figcaption data-reveal="up">Thaisty Crousty</figcaption>
         </figure>
       </div>
     </section>

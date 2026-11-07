@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { BOWLS, EXTRAS, FAMILIES, SAUCE_COLORS, SAUCE_LABELS, type Bowl } from '../data/menu'
-import { SELECT_BOWL_EVENT } from '../lib/events'
 import { useReveals } from '../motion/useReveals'
 import { PriceSlot } from '../components/PriceSlot'
 import { useOrder } from '../components/orderContext'
 import { PhoneIcon } from '../components/Icons'
+import { fitStyle } from '../lib/fitName'
 import './menu.css'
 
 type FamilyId = (typeof FAMILIES)[number]['id']
@@ -47,22 +47,6 @@ export function Menu() {
 
   const list = BOWLS.filter((b) => b.family === family)
   const active = list.find((b) => b.id === activeId) ?? list[0]
-
-  // Un autre bloc (la recette 3D) peut demander d'afficher un bol précis.
-  useEffect(() => {
-    const onSelect = (e: Event) => {
-      const id = (e as CustomEvent<string>).detail
-      const bowl = BOWLS.find((b) => b.id === id)
-      if (!bowl) return
-      setFamily(bowl.family)
-      setActiveId(bowl.id)
-      window.setTimeout(() => {
-        track.current?.querySelector<HTMLElement>(`[data-id="${id}"]`)?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-      }, 500)
-    }
-    window.addEventListener(SELECT_BOWL_EVENT, onSelect)
-    return () => window.removeEventListener(SELECT_BOWL_EVENT, onSelect)
-  }, [])
 
   const switchFamily = (id: FamilyId) => {
     setFamily(id)
@@ -122,7 +106,9 @@ export function Menu() {
                 aria-hidden="true"
               >
                 <span className="spaced">{active.kicker}</span>
-                <span className="menu__stage-name poster">{active.name}</span>
+                <span className="menu__stage-name poster fit-name" style={fitStyle(active.name)}>
+                  {active.name}
+                </span>
               </motion.div>
             </AnimatePresence>
             <div className="menu__stage-glow" aria-hidden="true" />
@@ -218,7 +204,9 @@ export function Menu() {
             >
               <div className="menu-card__type" aria-hidden="true">
                 <span className="spaced">{b.kicker}</span>
-                <span className="poster">{b.name}</span>
+                <span className="poster fit-name" style={fitStyle(b.name)}>
+                  {b.name}
+                </span>
               </div>
               <div className="menu-card__img">
                 <BowlImage bowl={b} sizes="80vw" />

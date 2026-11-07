@@ -43,46 +43,6 @@ export function makeCrumbGeometry(size = 1) {
   return lumpy(g, size * 0.55, 5)
 }
 
-/** Morceau de poulet pané : bloc arrondi avec une croûte bosselée. */
-export function makeChunkGeometry(seed = 0) {
-  const g = new THREE.BoxGeometry(1, 0.62, 0.78, 6, 4, 5)
-  const pos = g.getAttribute('position') as THREE.BufferAttribute
-  const v = new THREE.Vector3()
-  for (let i = 0; i < pos.count; i++) {
-    v.fromBufferAttribute(pos, i)
-    // Arrondit les arêtes du cube vers une forme de pépite.
-    const r = v.clone().normalize().multiply(new THREE.Vector3(0.62, 0.42, 0.5))
-    v.lerp(r, 0.55)
-    pos.setXYZ(i, v.x, v.y, v.z)
-  }
-  g.deleteAttribute('normal')
-  const merged = lumpy(mergeVerticesSimple(g), 0.2, 13, seed)
-
-  // Une face coupée nette laisse voir la chair blanche, comme sur les photos des bols.
-  const rand = seeded(seed + 101)
-  const p = merged.getAttribute('position') as THREE.BufferAttribute
-  const colors = new Float32Array(p.count * 3)
-  const crust = new THREE.Color()
-  const meat = new THREE.Color('#efe2cf')
-  const cutX = 0.28
-  for (let i = 0; i < p.count; i++) {
-    const x = p.getX(i)
-    let c: THREE.Color
-    if (x > cutX) {
-      p.setX(i, cutX + rand() * 0.012)
-      c = meat.clone().offsetHSL(0, 0, (rand() - 0.5) * 0.05)
-    } else {
-      const edge = x > cutX - 0.05
-      crust.setHSL(0.062 + rand() * 0.025, 0.78, (edge ? 0.42 : 0.27) + rand() * 0.12)
-      c = crust
-    }
-    c.toArray(colors, i * 3)
-  }
-  merged.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
-  merged.computeVertexNormals()
-  return merged
-}
-
 /** Brin de persil : petite feuille plate dentelée. */
 export function makeLeafGeometry() {
   const s = new THREE.Shape()
@@ -94,18 +54,6 @@ export function makeLeafGeometry() {
   s.lineTo(-0.3, 0.5)
   s.bezierCurveTo(-0.55, 0.1, -0.35, -0.3, 0, -0.5)
   return new THREE.ShapeGeometry(s, 4)
-}
-
-/** Lamelle d'oignon frit : petit ruban courbé. */
-export function makeOnionGeometry() {
-  const g = new THREE.TorusGeometry(0.5, 0.09, 4, 10, Math.PI * 0.9)
-  g.scale(1, 1, 0.5)
-  return g
-}
-
-/** Grain de riz. */
-export function makeRiceGeometry() {
-  return new THREE.CapsuleGeometry(0.035, 0.07, 2, 6)
 }
 
 /** Texture ronde et douce pour les braises. */

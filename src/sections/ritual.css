@@ -13,7 +13,9 @@
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
   padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
   padding-bottom: 12px;
   scrollbar-width: none;
 }
@@ -138,6 +140,7 @@
 
 @media (min-width: 900px) {
   .ritual__pin {
+    height: 100vh;
     height: 100svh;
     padding-block: calc(var(--nav-h) + 3vh) 9vh;
     display: flex;
@@ -165,11 +168,13 @@
 
   .ritual-card__img {
     height: 100%;
+    max-height: 64vh;
     max-height: 64svh;
     width: auto;
   }
 
   .ritual-card.is-low {
+    padding-top: 8vh;
     padding-top: 8svh;
   }
 
@@ -198,6 +203,7 @@ html[data-tier='static'] .ritual__track {
 
 @media (min-width: 900px) {
   html[data-tier='static'] .ritual-card__img {
+    height: 64vh;
     height: 64svh;
   }
 }

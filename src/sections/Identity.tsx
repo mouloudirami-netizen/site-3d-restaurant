@@ -4,11 +4,9 @@ import { useReveals } from '../motion/useReveals'
 import './identity.css'
 
 const SHOTS = [
-  { id: 'essentials', caption: 'Campagne « Essentials ta3 had lyamat »', cls: 'is-tall', w: 1170, h: 1433 },
   { id: 'enseigne', caption: 'L’enseigne lumineuse', cls: 'is-wide', w: 1170, h: 909 },
-  { id: 'workout', caption: 'Campagne « Workout done! »', cls: 'is-mid', w: 1170, h: 1441 },
-  { id: 'facade-ouverture', caption: 'Jour d’ouverture', cls: 'is-mid', w: 1170, h: 1556 },
-  { id: 'slogan-cuisine', caption: 'En cuisine', cls: 'is-tall', w: 1170, h: 1524 },
+  { id: 'facade-ouverture', caption: 'Jour d’ouverture', cls: 'is-half', w: 1170, h: 1556 },
+  { id: 'slogan-cuisine', caption: 'En cuisine', cls: 'is-half is-low', w: 1170, h: 1524 },
 ]
 
 export function Identity() {
@@ -21,12 +19,12 @@ export function Identity() {
         <header className="identity__head">
           <div>
             <p className="eyebrow" data-reveal="up">
-              L’univers
+              La marque
             </p>
             <h2 id="identity-title" className="identity__title display" data-reveal="lines">
-              Les essentiels
+              L’univers
               <br />
-              <span>ta3 had lyamat.</span>
+              <span>Thaisty.</span>
             </h2>
           </div>
           <div className="identity__aside" data-reveal="up">
@@ -45,7 +43,7 @@ export function Identity() {
                 <img
                   src={`media/photos/${s.id}-1170.webp`}
                   srcSet={`media/photos/${s.id}-640.webp 640w, media/photos/${s.id}-1170.webp 1170w`}
-                  sizes="(min-width: 900px) 33vw, 92vw"
+                  sizes={s.cls === 'is-wide' ? '(min-width: 900px) 92vw, 92vw' : '(min-width: 700px) 46vw, 92vw'}
                   width={s.w}
                   height={s.h}
                   loading="lazy"

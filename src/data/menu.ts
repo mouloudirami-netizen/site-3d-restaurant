@@ -1,5 +1,5 @@
 // Menu salé : noms et compositions relevés sur les affiches officielles fournies.
-// Les prix ne sont pas encore communiqués : `price` reste à `null` et le site affiche une case vide.
+// Prix relevés sur le menu imprimé des restaurants (en dinars). `price: null` affiche une case vide.
 
 export type SauceKey = 'blanche' | 'curry' | 'piquante' | 'sucree'
 
@@ -25,7 +25,7 @@ export const BOWLS: Bowl[] = [
     name: 'Classic',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce blanche', 'Oignons frits', 'Persil'],
     sauces: ['blanche'],
-    price: null,
+    price: 650,
     image: img('classic'),
     tagline: 'La base. Le crousty, la sauce blanche, rien d’autre.',
   },
@@ -36,7 +36,7 @@ export const BOWLS: Bowl[] = [
     name: 'Spicy',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce blanche', 'Sauce piquante', 'Oignons frits', 'Persil'],
     sauces: ['blanche', 'piquante'],
-    price: null,
+    price: 750,
     image: img('spicy'),
     tagline: 'Pour ceux qui aiment quand ça pique.',
   },
@@ -47,7 +47,7 @@ export const BOWLS: Bowl[] = [
     name: 'Sweet',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce blanche', 'Sauce sucrée', 'Oignons frits', 'Persil'],
     sauces: ['blanche', 'sucree'],
-    price: null,
+    price: 750,
     image: img('sweet'),
     tagline: 'Le croustillant, version douce et caramélisée.',
   },
@@ -58,7 +58,7 @@ export const BOWLS: Bowl[] = [
     name: 'Mix',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce blanche', 'Sauce sucrée', 'Sauce piquante', 'Oignons frits', 'Persil'],
     sauces: ['blanche', 'sucree', 'piquante'],
-    price: null,
+    price: 850,
     image: img('mix'),
     tagline: 'Sucré, piquant. Pourquoi choisir ?',
   },
@@ -69,7 +69,7 @@ export const BOWLS: Bowl[] = [
     name: 'Thaï',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce curry', 'Oignons frits', 'Persil'],
     sauces: ['curry'],
-    price: null,
+    price: 800,
     image: img('curry-thai'),
     tagline: 'La sauce curry nappe tout. Littéralement.',
   },
@@ -80,7 +80,7 @@ export const BOWLS: Bowl[] = [
     name: 'Spicy',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce curry', 'Sauce piquante', 'Oignons frits', 'Persil'],
     sauces: ['curry', 'piquante'],
-    price: null,
+    price: 850,
     image: img('curry-spicy'),
     tagline: 'Curry et piment, le duo qui chauffe.',
   },
@@ -91,7 +91,7 @@ export const BOWLS: Bowl[] = [
     name: 'Sweet',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce curry', 'Sauce sucrée', 'Oignons frits', 'Persil'],
     sauces: ['curry', 'sucree'],
-    price: null,
+    price: 850,
     image: img('curry-sweet'),
     tagline: 'Le curry rencontre le sucré.',
   },
@@ -102,7 +102,7 @@ export const BOWLS: Bowl[] = [
     name: 'Mix',
     composition: ['Riz blanc', 'Poulet crousty', 'Sauce curry', 'Sauce piquante', 'Sauce sucrée', 'Oignons frits', 'Persil'],
     sauces: ['curry', 'piquante', 'sucree'],
-    price: null,
+    price: 900,
     image: img('curry-mix'),
     tagline: 'Les trois sauces. Le bol complet.',
   },
@@ -113,10 +113,11 @@ export const FAMILIES = [
   { id: 'curry', label: 'Crousty Curry', note: 'Base sauce curry' },
 ] as const
 
-// Suppléments vus sur l'ancien panneau menu ; prix volontairement laissés vides.
-export const EXTRAS = [
-  { id: 'sauce', name: 'Supplément sauce', price: null as number | null },
-  { id: 'poulet', name: 'Supplément poulet', price: null as number | null },
+// Suppléments du menu imprimé.
+export const EXTRAS: { id: string; name: string; price: number | null }[] = [
+  { id: 'sauce-blanche', name: 'Supplément sauce blanche', price: 100 },
+  { id: 'poulet', name: 'Supplément poulet', price: 300 },
+  { id: 'sauce-curry', name: 'Supplément sauce curry', price: 100 },
 ]
 
 export const SAUCE_COLORS: Record<SauceKey, string> = {

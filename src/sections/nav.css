@@ -90,6 +90,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
+  background: rgba(7, 6, 5, 0.55);
   box-shadow: inset 0 0 0 1px rgba(244, 239, 230, 0.25);
 }
 

@@ -5,17 +5,18 @@ Toutes les images proviennent des photos, affiches et captures de vidéo fournie
 | Dossier | Contenu | Traitement |
 |---|---|---|
 | `public/media/bowls/` | 8 bols (affiches menu) | Détourage `rembg` (isnet-general-use), WebP 1000 px et 560 px |
-| `public/media/desserts/` | 9 crèmes dessert + 4 tiramisu (stories « Desserts ») | Détourage `rembg`, WebP 720 px et 400 px |
+| `public/media/desserts/` | 10 crèmes dessert (dont Snickers) + 4 tiramisu | Détourage `rembg`, WebP 720 px et 400 px |
+| `public/media/recette/` | 6 étapes de la recette (`recette_etape0` à `recette_etape5`) | WebP 1024 px et 640 px |
 | `public/media/ritual/` | 9 images de la vidéo de préparation | Recadrage, WebP 760 px |
 | `public/media/photos/` | Campagnes, enseigne, façade, bols | WebP 1170 px et 640 px |
 | `public/media/textures/motif.webp` | Motif orange (mots darija/arabe) tiré des visuels horaires | Converti en masque alpha |
 | `src/brand/logoPaths.ts` | Logo vectorisé depuis la photo de profil | `potrace` ; **à remplacer par le fichier vectoriel officiel** |
 
-La 3D (pot, riz, poulet, sauces, garnitures, particules) est générée en code (`src/three/`), sans fichier GLB ni HDRI externe : l'éclairage d'environnement est construit avec des `Lightformer` locaux.
+Les particules 3D de l'accueil sont générées en code (`src/three/`), sans fichier externe.
 
 ## À fournir / à valider
 
-- [ ] Prix de tous les produits (cases vides, `price: null` dans `src/data/*.ts`)
+- [x] Prix des bols, suppléments et desserts (menu imprimé, novembre 2026)
 - [ ] Adresses exactes et liens Google Maps officiels (`mapsUrl` / `address` dans `src/data/restaurants.ts`)
 - [ ] Logo vectoriel officiel (SVG)
 - [ ] Vidéo originale de préparation (pour un hero vidéo éventuel)

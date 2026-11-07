@@ -58,7 +58,6 @@
 
 .desserts__eyebrow {
   color: var(--d-color);
-  transition: color 0.6s;
 }
 
 .desserts__title {
@@ -67,7 +66,6 @@
 
 .desserts__title span {
   color: var(--d-color);
-  transition: color 0.6s;
 }
 
 .desserts__tabs {
@@ -109,6 +107,7 @@
 
 .desserts__stage {
   position: relative;
+  container-type: inline-size;
   display: grid;
   justify-items: center;
   min-height: clamp(460px, 70vh, 720px);
@@ -129,11 +128,10 @@
 }
 
 .desserts__name {
-  font-size: clamp(3.6rem, 13vw, 11rem);
+  --fit-max: 11rem;
+  --fit-width: 94cqi;
   color: var(--d-color);
   line-height: 0.88;
-  max-width: 100%;
-  overflow-wrap: anywhere;
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
