@@ -9,7 +9,7 @@ export const COLORS = {
 };
 
 export const FPS = 30;
-export const DURATION_S = 21;
+export const DURATION_S = 20;
 
 // ------------------------------------------------------------------ polices (chargées avant le rendu)
 const FONTS: [string, string, string, string?][] = [

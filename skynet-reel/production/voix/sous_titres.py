@@ -2,7 +2,7 @@
 Sorties : src/subtitles.ts (pour Remotion) et output/skynet-agency-promo.srt"""
 import json, re, subprocess, os
 H = os.path.dirname(os.path.abspath(__file__))
-OFFS = [0.30, 4.20, 9.35, 15.25]
+OFFS = [0.45, 4.35, 9.5, 15.4]
 CHUNKS = ["Vous avez une entreprise ?",
           "Offrez-lui un site web moderne,|élégant et à son image.",
           "Présentez vos services|et facilitez le contact avec vos clients.",
@@ -20,7 +20,7 @@ subs = []
 from scipy.io import wavfile
 import numpy as np
 for i, (off, txt) in enumerate(zip(OFFS, CHUNKS)):
-    sr, x = wavfile.read(os.path.join(H, '..', 'voix-humaine', f'phrase{i + 1}.wav')); x = x.astype(np.float32) / 32768
+    sr, x = wavfile.read(os.path.join(H, f'v{i + 1}.wav')); x = x.astype(np.float32) / 32768
     hop = int(sr * .02)
     db = 20 * np.log10(np.array([np.sqrt(np.mean(x[j:j + hop] ** 2)) + 1e-9 for j in range(0, len(x) - hop, hop)]))
     sm = np.convolve(db, np.ones(5) / 5, 'same')

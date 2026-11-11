@@ -153,7 +153,7 @@ const Scene4: React.FC<{ t: number }> = ({ t }) => {
   if (t < 14.5) return null;
   const bg = prog(t, 14.5, 15.2, easeInOut);
   const logo = prog(t, 15.0, 16.3);
-  const drift = range(t, [16.3, 21], [1, 1.03]);
+  const drift = range(t, [16.3, 20], [1, 1.025]);
   const cta = prog(t, 17.35, 17.9, easeOutBack);
   const pulse = t > 17.9 && t < 18.25 ? Math.sin(((t - 17.9) / 0.35) * Math.PI) : 0;
   return (
