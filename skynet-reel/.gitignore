@@ -1,0 +1,5 @@
+# Fichiers intermédiaires, régénérables
+out/
+production/controle/
+production/rendu-remotion-brut.mp4
+production/audio/*.wav
