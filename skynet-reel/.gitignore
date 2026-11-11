@@ -3,3 +3,6 @@ out/
 production/controle/
 production/rendu-remotion-brut.mp4
 production/audio/*.wav
+
+# Extraits de test de la voix (voix personnelle, non publiés)
+production/voix-humaine/extraits/
