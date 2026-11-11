@@ -1,10 +1,10 @@
-"""Musique originale (synthèse, aucun sample, aucun droit tiers) + bruitages pour la pub SKYNET AGENCY (20 s).
+"""Musique originale (synthèse, aucun sample, aucun droit tiers) + bruitages pour la pub SKYNET AGENCY (21 s).
 Tempo 120 BPM : un temps = 0,5 s. Sorties : musique.wav, bruitages.wav (48 kHz stéréo)."""
 import numpy as np
 from scipy import signal
 from scipy.io import wavfile
 
-SR, DUR = 48000, 20.0
+SR, DUR = 48000, 21.0
 N = int(SR * DUR)
 rng = np.random.default_rng(11)
 
@@ -127,13 +127,13 @@ for bar in range(2, 8):
 rt = T(1.5)
 place(syn, sweep_lp(rng.standard_normal(len(rt)), 300, 9000) * (rt / 1.5) ** 2 * .35, 13.5)
 # signature 15–20 s
-place(syn, pad([53, 60, 64, 67, 69, 72, 76], 4.8, 2600), 15.0, .8)
-place(syn, sub(41, 4.5), 15.0, .6)
+place(syn, pad([53, 60, 64, 67, 69, 72, 76], 5.8, 2600), 15.0, .8)
+place(syn, sub(41, 5.5), 15.0, .6)
 place(drm, kick(), 15.0, .8)
-for k, m in enumerate([72, 76, 79, 84, 79, 76, 81, 84]):
+for k, m in enumerate([72, 76, 79, 84, 79, 76, 81, 84, 79, 76]):
     place(syn, pluck(m, .6, 2600), 15.5 + k * .5, .22, pan=-.3 if k % 2 else .3)
 mus = verb(filt(syn, 'high', 35), IR_L, .32) * .9 + verb(drm, IR_S, .1) * .75
-fade = np.ones(N); i0 = int(19.0 * SR); fade[i0:] = np.linspace(1, 0, N - i0) ** 1.6
+fade = np.ones(N); i0 = int(20.0 * SR); fade[i0:] = np.linspace(1, 0, N - i0) ** 1.6
 mus = np.tanh(mus * fade[:, None] * 1.15) / 1.15
 
 # ------------------------------------------------------------------ bruitages
