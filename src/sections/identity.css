@@ -1,0 +1,116 @@
+.identity {
+  padding-block: clamp(96px, 14vh, 160px);
+  background: var(--charcoal);
+}
+
+.identity__head {
+  display: grid;
+  gap: 32px;
+  margin-bottom: clamp(40px, 7vh, 80px);
+}
+
+.identity__title {
+  margin-top: 12px;
+  font-size: clamp(3rem, 9vw, 8rem);
+}
+
+.identity__title span {
+  color: var(--orange);
+}
+
+.identity__aside {
+  display: grid;
+  gap: 20px;
+  max-width: 420px;
+}
+
+.identity__logo {
+  width: 170px;
+  color: var(--cream);
+}
+
+.identity__aside p {
+  color: var(--cream-dim);
+}
+
+.identity__grid {
+  display: grid;
+  gap: 14px;
+}
+
+.identity__shot {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.identity__frame {
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--charcoal-2);
+}
+
+.identity__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .identity__shot:hover .identity__frame img {
+    transform: scale(1.05);
+  }
+}
+
+.identity__shot figcaption {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.5);
+}
+
+/* Cadres à proportions fixes : la mise en page ne dépend pas du format des photos */
+.identity__shot.is-wide .identity__frame {
+  aspect-ratio: 16 / 10;
+}
+
+.identity__shot.is-half .identity__frame {
+  aspect-ratio: 4 / 5;
+}
+
+@media (min-width: 700px) {
+  .identity__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .identity__shot.is-wide {
+    grid-column: 1 / -1;
+  }
+
+  .identity__shot.is-wide .identity__frame {
+    aspect-ratio: 21 / 9;
+  }
+
+  .identity__shot.is-low {
+    margin-top: 8vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .identity__head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .identity__grid {
+    gap: 24px;
+  }
+}
+
+/* L'enseigne est en haut de la photo : on cadre dessus */
+.identity__shot.is-wide .identity__frame img {
+  object-position: 50% 28%;
+}

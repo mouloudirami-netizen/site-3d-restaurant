@@ -1,0 +1,261 @@
+.recipe {
+  position: relative;
+  background: var(--black);
+}
+
+/* Avec l'animation : la section est haute (défilement des 6 étapes) et la scène reste collée à l'écran */
+.recipe.is-scrubbed {
+  height: calc(100vh + 420vh);
+  height: calc(100svh + 420svh);
+}
+
+.recipe.is-scrubbed .recipe__pin {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.recipe__pin {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #0b0a09;
+}
+
+/* ---------- Images ---------- */
+
+.recipe__media {
+  position: absolute;
+  inset: 0;
+}
+
+.recipe__stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.recipe__frame {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.recipe__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Le bol est centré un peu au-dessus du milieu de la photo */
+  object-position: 50% 42%;
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
+/* Voile : garde le texte lisible sur la photo (mobile) */
+.recipe__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(7, 6, 5, 0.88) 0%, rgba(7, 6, 5, 0.25) 26%, rgba(7, 6, 5, 0) 46%),
+    linear-gradient(to top, rgba(7, 6, 5, 0.94) 0%, rgba(7, 6, 5, 0.6) 22%, rgba(7, 6, 5, 0) 44%);
+}
+
+/* ---------- Texte ---------- */
+
+.recipe__ui {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: calc(var(--nav-h) + 8px);
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+.recipe__head {
+  display: grid;
+  gap: 8px;
+}
+
+.recipe__title {
+  font-size: clamp(2.4rem, 10.5vw, 6rem);
+}
+
+.recipe__title span {
+  color: var(--orange);
+}
+
+.recipe__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.recipe__step {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 2px solid rgba(244, 239, 230, 0.22);
+  color: rgba(244, 239, 230, 0.5);
+  transition:
+    color 0.4s,
+    border-color 0.4s;
+}
+
+.recipe__step.is-current,
+.recipe__step.is-done {
+  border-color: var(--orange);
+  color: var(--cream);
+}
+
+.recipe__step-n {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--orange);
+}
+
+.recipe__step-body {
+  display: grid;
+  gap: 4px;
+}
+
+.recipe__step-title {
+  font-family: var(--f-poster);
+  font-weight: 800;
+  font-size: clamp(0.62rem, 2.6vw, 1.25rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.recipe__step-note {
+  display: none;
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+/* ---------- Ordinateur : texte à gauche, photo à droite ---------- */
+
+@media (min-width: 900px) {
+  .recipe__pin {
+    background:
+      radial-gradient(50% 60% at 72% 55%, rgba(255, 122, 26, 0.16), transparent 70%),
+      var(--black);
+  }
+
+  /* Le cadre suit le format des photos (4:5) : le bol est toujours vu en entier */
+  .recipe__media {
+    left: auto;
+    right: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    top: calc(var(--nav-h) + 3vh);
+    bottom: 5vh;
+    aspect-ratio: 4 / 5;
+    max-width: 54vw;
+  }
+
+  .recipe__stack {
+    border-radius: 28px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  }
+
+  .recipe__media::after {
+    display: none;
+  }
+
+  .recipe__ui {
+    justify-content: center;
+    gap: 6vh;
+    padding-top: calc(var(--nav-h) + 3vh);
+    padding-bottom: 5vh;
+  }
+
+  .recipe__head,
+  .recipe__steps {
+    width: min(40%, 460px);
+  }
+
+  .recipe__title {
+    font-size: clamp(2.8rem, 4.6vw, 5.4rem);
+  }
+
+  .recipe__steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .recipe__step {
+    grid-template-columns: 40px 1fr;
+    padding: 11px 0 11px 16px;
+    border-top: 0;
+    border-left: 2px solid var(--cream-faint);
+  }
+
+  .recipe__step-title {
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+  }
+
+  .recipe__step-note {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) and (max-height: 760px) {
+  .recipe__step-note {
+    display: none;
+  }
+}
+
+/* Téléphone / tablette : la liste reste au-dessus du bouton « Commander » flottant */
+@media (max-width: 1023px) {
+  .recipe__ui {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+
+  .recipe__media::after {
+    background:
+      linear-gradient(to bottom, rgba(7, 6, 5, 0.88) 0%, rgba(7, 6, 5, 0.25) 26%, rgba(7, 6, 5, 0) 46%),
+      linear-gradient(to top, rgba(7, 6, 5, 0.96) 0%, rgba(7, 6, 5, 0.75) 24%, rgba(7, 6, 5, 0) 46%);
+  }
+
+  .recipe__frame img {
+    object-position: 50% 34%;
+  }
+}
+
+@media (max-width: 380px) {
+  .recipe__steps {
+    gap: 4px;
+  }
+
+  .recipe__step-n {
+    font-size: 0.6rem;
+  }
+}
+
+/* ---------- Sans animation (niveau « static » ou réduction des animations) ---------- */
+
+html[data-tier='static'] .recipe__frame.is-hidden {
+  display: none;
+}
+
+html[data-tier='static'] .recipe__step {
+  border-color: var(--orange);
+  color: var(--cream);
+}
+
+/* Petits ordinateurs / tablettes en paysage : la photo s'arrête au-dessus du bouton flottant */
+@media (min-width: 900px) and (max-width: 1023px) {
+  .recipe__media {
+    bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+}

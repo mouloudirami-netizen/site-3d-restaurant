@@ -1,0 +1,156 @@
+.crunch {
+  position: relative;
+  padding-block: clamp(80px, 12vh, 140px);
+  background:
+    radial-gradient(60% 40% at 70% 40%, rgba(229, 40, 27, 0.18), transparent 70%),
+    var(--black);
+  overflow: hidden;
+}
+
+.crunch__giant {
+  display: grid;
+  gap: 0.1em;
+  font-size: clamp(4.6rem, 15vw, 16rem);
+  line-height: 0.86;
+  white-space: nowrap;
+  margin-bottom: clamp(32px, 6vh, 72px);
+}
+
+.crunch__line {
+  display: block;
+}
+
+.crunch__line em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.crunch__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.crunch__photo {
+  margin: 0;
+}
+
+.crunch__frame {
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 3 / 4;
+  background: var(--charcoal-2);
+}
+
+.crunch__frame img {
+  width: 100%;
+  height: 120%;
+  margin-top: -10%;
+  object-fit: cover;
+}
+
+.crunch__photo.is-a {
+  grid-column: 1 / -1;
+}
+
+.crunch__photo.is-a .crunch__frame {
+  aspect-ratio: 4 / 3;
+}
+
+.crunch__sauces {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.crunch__lead {
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.4rem);
+  line-height: 1.45;
+  max-width: 34ch;
+}
+
+.crunch__sauces ul {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.crunch__sauces li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.crunch__drop {
+  grid-row: span 2;
+  width: 26px;
+  height: 32px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border-top-left-radius: 2px;
+  transform: rotate(45deg);
+  box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 3px 3px 5px rgba(255, 255, 255, 0.35);
+}
+
+.crunch__sauce-name {
+  font-family: var(--f-poster);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+
+.crunch__sauce-note {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+@media (min-width: 900px) {
+  .crunch__grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .crunch__photo.is-a {
+    grid-column: 1 / span 5;
+  }
+
+  .crunch__photo.is-a .crunch__frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .crunch__photo.is-b {
+    grid-column: 6 / span 3;
+    margin-top: 22vh;
+  }
+
+  .crunch__photo.is-c {
+    grid-column: 9 / span 4;
+    margin-top: 6vh;
+  }
+
+  .crunch__sauces {
+    grid-column: 1 / -1;
+    grid-template-columns: 5fr 7fr;
+    column-gap: 24px;
+    align-items: start;
+    margin-top: 10vh;
+  }
+
+  .crunch__sauces .eyebrow {
+    grid-column: 1;
+  }
+
+  .crunch__lead {
+    grid-column: 1;
+  }
+
+  .crunch__sauces ul {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+}

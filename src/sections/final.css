@@ -1,0 +1,135 @@
+.final {
+  position: relative;
+  padding-block: clamp(96px, 16vh, 180px) clamp(72px, 10vh, 120px);
+  background:
+    radial-gradient(60% 50% at 50% 70%, rgba(229, 40, 27, 0.35), transparent 70%),
+    radial-gradient(80% 60% at 50% 100%, rgba(255, 122, 26, 0.25), transparent 70%),
+    var(--black);
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+.final__motif {
+  position: absolute;
+  inset: auto -10% -20% -10%;
+  z-index: -1;
+  aspect-ratio: 1070 / 730;
+  opacity: 0.12;
+}
+
+.final__inner {
+  display: grid;
+  justify-items: center;
+  gap: clamp(24px, 4vh, 40px);
+}
+
+.final__title {
+  display: grid;
+  font-size: clamp(3.6rem, 13vw, 12rem);
+  line-height: 0.86;
+}
+
+.final__title-alt {
+  color: var(--orange);
+  font-size: 0.42em;
+  margin-top: 0.2em;
+}
+
+.final__bowl {
+  width: min(86vw, 640px);
+  height: auto;
+  filter: drop-shadow(0 50px 60px rgba(0, 0, 0, 0.7));
+}
+
+.final__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer {
+  padding-block: 56px 28px;
+  background: var(--charcoal);
+  border-top: 1px solid var(--line);
+}
+
+.footer__inner {
+  display: grid;
+  gap: 32px;
+}
+
+.footer__brand {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.footer__logo {
+  width: 160px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.footer__brand p {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.footer__motto {
+  font-family: var(--f-display);
+  font-size: 1.15rem !important;
+  text-transform: uppercase;
+  color: var(--orange) !important;
+}
+
+.footer__nav {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  gap: 10px 32px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer__nav a {
+  color: var(--cream-dim);
+  transition: color 0.3s;
+}
+
+.footer__nav a:hover {
+  color: var(--orange);
+}
+
+.footer__ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.footer__ig svg {
+  width: 22px;
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.72rem;
+  color: rgba(244, 239, 230, 0.4);
+}
+
+@media (min-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1.4fr 1fr auto;
+    align-items: start;
+  }
+}
